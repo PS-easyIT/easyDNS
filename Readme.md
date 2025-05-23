@@ -1,4 +1,4 @@
-# easyDNS Advanced - DNS Server Management Tool
+# easyDNS - DNS Server Management Tool
 
 ## Übersicht
 
