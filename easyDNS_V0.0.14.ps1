@@ -1,17 +1,12 @@
 #requires -RunAsAdministrator
 
 ###############################################################################
-# easyDNS v0.1.1 - Moderne WPF DNS-Verwaltung
-# Komplett überarbeitet mit Windows 11 Design und WPF XAML
-###############################################################################
-
-###############################################################################
-# INLINE KONFIGURATION - Keine externe INI erforderlich
+# easyDNS v0.0.14 
 ###############################################################################
 $global:AppConfig = @{
-    AppName = "easyDNS v0.1.1"
+    AppName = "easyDNS v0.0.14"
     Author = "DNS Management Suite"
-    ScriptVersion = "0.1.1"
+    ScriptVersion = "0.0.11"
     Website = "https://github.com/easyIT"
     LastUpdate = "24.05.2025"
     

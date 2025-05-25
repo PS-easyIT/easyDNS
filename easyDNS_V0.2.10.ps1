@@ -1,7 +1,7 @@
 #requires -RunAsAdministrator
 
 ###############################################################################
-# easyDNS v0.3.0 - Moderne WPF DNS-Verwaltung
+# easyDNS v0.2.10 - Moderne WPF DNS-Verwaltung
 # Komplett überarbeitet mit Windows 11 Design und WPF XAML
 # Optimiert für bessere Performance und Benutzerfreundlichkeit
 ###############################################################################
@@ -10,10 +10,10 @@
 # INLINE KONFIGURATION - Keine externe INI erforderlich
 ###############################################################################
 $global:AppConfig = @{
-    AppName = "easyDNS v0.3.0"
-    Author = "DNS Management Suite"
-    ScriptVersion = "0.3.0"
-    Website = "https://github.com/easyIT"
+    AppName = "easyDNS"
+    Author = "PHscripts.de | Andreas Hepp"
+    ScriptVersion = "0.2.10"
+    Website = "https://github.com/PS-easyIT/"
     LastUpdate = "25.05.2025"
     
     # Design-Konfiguration (Windows 11 Style)
@@ -813,10 +813,10 @@ $global:XamlString = @"
 
         <!-- Navigation Button Style (Win11 Inspired Light Theme) -->
         <Style x:Key="NavButton" TargetType="Button">
-            <Setter Property="Background" Value="#4A90E2"/> <!-- Mittlerer, angenehmer Blauton -->
-            <Setter Property="Foreground" Value="White"/> <!-- Schriftfarbe angepasst für Kontrast -->
+            <Setter Property="Background" Value="#4A90E2"/> <!-- Medium, pleasant blue tone -->
+            <Setter Property="Foreground" Value="White"/> <!-- Font color adjusted for contrast -->
             <Setter Property="BorderThickness" Value="0,0,0,1"/>
-            <Setter Property="BorderBrush" Value="#357ABD"/> <!-- Dunklerer Blauton für den unteren Rand -->
+            <Setter Property="BorderBrush" Value="#357ABD"/> <!-- Darker blue tone for the bottom border -->
             <Setter Property="Padding" Value="15,10"/>
             <Setter Property="Margin" Value="8,3,8,3"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -838,10 +838,10 @@ $global:XamlString = @"
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#60A0F0"/> <!-- Hellerer Blauton für Hover -->
+                                <Setter TargetName="border" Property="Background" Value="#60A0F0"/> <!-- Lighter blue tone for hover -->
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#0078D4"/> <!-- Kräftigeres Blau für Pressed -->
+                                <Setter TargetName="border" Property="Background" Value="#0078D4"/> <!-- Stronger blue for pressed -->
                                 <Setter Property="Foreground" Value="White"/>
                                 <Setter TargetName="border" Property="BorderBrush" Value="#0078D4"/> 
                             </Trigger>
@@ -990,32 +990,32 @@ $global:XamlString = @"
                 <ScrollViewer Name="contentScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                     <Grid Name="contentGrid">
                         <!-- Dashboard Panel -->
-                        <StackPanel Name="dashboardPanel" Visibility="Visible">
+                        <StackPanel Name="dashboardPanel" Visibility="Visible" Width="1150" HorizontalAlignment="Center">
                             <TextBlock Text="DNS Server Dashboard" FontSize="24" FontWeight="SemiBold" 
                                       Foreground="#1C1C1C" Margin="0,0,0,20"/>
 
-                            <Grid>
+                            <Grid> <!-- Main grid for the dashboard layout -->
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/> <!-- Upper row for Server Info and Key Stats -->
+                                    <RowDefinition Height="*"/>    <!-- Lower row for About and Copyright, takes the remaining vertical space in the dashboard grid -->
                                 </Grid.RowDefinitions>
 
-                                <!-- Obere Reihe: Server Information und Key Information nebeneinander -->
-                                <Grid Grid.Row="0" Margin="0,0,0,20">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="775"/>
-                                        <ColumnDefinition Width="386"/>
-                                    </Grid.ColumnDefinitions>
+                                <!-- Obere Reihe: Serverinformationen und Schlüsselinformationen in einer Box -->
+                                <Border Grid.Row="0" Style="{StaticResource Card}" Margin="0,0,0,20"> <!-- Unterer Rand für Abstand zur nächsten Reihe -->
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/> <!-- Gleiche Breite -->
+                                            <ColumnDefinition Width="*"/> <!-- Gleiche Breite -->
+                                        </Grid.ColumnDefinitions>
 
-                                    <!-- Server Information Card -->
-                                    <Border Grid.Column="0" Style="{StaticResource Card}" Margin="0,0,10,0">
-                                        <StackPanel>
+                                        <!-- Serverinformationen-Teil -->
+                                        <StackPanel Grid.Column="0" Margin="0,0,10,0"> <!-- Rechter Rand für Abstand zur nächsten Spalte -->
                                             <TextBlock Text="Server Information" FontSize="16" FontWeight="SemiBold" 
                                                     Foreground="#1C1C1C" Margin="0,0,0,12"/>
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="200" MinWidth="150"/>
-                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="200" MinWidth="150"/> <!-- Beibehaltung der ursprünglichen Breite für Labels -->
+                                                    <ColumnDefinition Width="*"/> <!-- Werte -->
                                                 </Grid.ColumnDefinitions>
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="Auto"/>
@@ -1027,14 +1027,14 @@ $global:XamlString = @"
                                                     <RowDefinition Height="Auto"/>
                                                 </Grid.RowDefinitions>
 
-                                                <!-- Betriebssystem -->
-                                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Betriebssystem:" FontWeight="SemiBold" 
+                                                <!-- Operating System -->
+                                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Operating System:" FontWeight="SemiBold" 
                                                         Foreground="#505050" Margin="0,0,10,4"/>
                                                 <TextBlock Grid.Row="0" Grid.Column="1" Name="lblOS" Text="Loading..." 
                                                         Foreground="#1C1C1C" Margin="0,0,0,4"/>
 
-                                                <!-- Angemeldeter User -->
-                                                <TextBlock Grid.Row="1" Grid.Column="0" Text="Angemeldeter User:" FontWeight="SemiBold" 
+                                                <!-- Logged in User -->
+                                                <TextBlock Grid.Row="1" Grid.Column="0" Text="Logged in User:" FontWeight="SemiBold" 
                                                         Foreground="#505050" Margin="0,0,10,4"/>
                                                 <TextBlock Grid.Row="1" Grid.Column="1" Name="lblUser" Text="Loading..." 
                                                         Foreground="#1C1C1C" Margin="0,0,0,4"/>
@@ -1046,19 +1046,19 @@ $global:XamlString = @"
                                                         Foreground="#1C1C1C" Margin="0,0,0,4"/>
 
                                                 <!-- CPU -->
-                                                <TextBlock Grid.Row="3" Grid.Column="0" Text="CPU Auslastung:" FontWeight="SemiBold" 
+                                                <TextBlock Grid.Row="3" Grid.Column="0" Text="CPU Usage:" FontWeight="SemiBold" 
                                                         Foreground="#505050" Margin="0,0,10,4"/>
                                                 <TextBlock Grid.Row="3" Grid.Column="1" Name="lblCPU" Text="Loading..." 
                                                         Foreground="#1C1C1C" Margin="0,0,0,4"/>
 
                                                 <!-- RAM -->
-                                                <TextBlock Grid.Row="4" Grid.Column="0" Text="RAM Auslastung:" FontWeight="SemiBold" 
+                                                <TextBlock Grid.Row="4" Grid.Column="0" Text="RAM Usage:" FontWeight="SemiBold" 
                                                         Foreground="#505050" Margin="0,0,10,4"/>
                                                 <TextBlock Grid.Row="4" Grid.Column="1" Name="lblRAM" Text="Loading..." 
                                                         Foreground="#1C1C1C" Margin="0,0,0,4"/>
 
-                                                <!-- Systempartition -->
-                                                <TextBlock Grid.Row="5" Grid.Column="0" Text="Systempartition (C:):" FontWeight="SemiBold" 
+                                                <!-- System Partition -->
+                                                <TextBlock Grid.Row="5" Grid.Column="0" Text="System Partition (C):" FontWeight="SemiBold" 
                                                         Foreground="#505050" Margin="0,0,10,4"/>
                                                 <TextBlock Grid.Row="5" Grid.Column="1" Name="lblDisk" Text="Loading..." 
                                                         Foreground="#1C1C1C" Margin="0,0,0,4"/>
@@ -1070,49 +1070,98 @@ $global:XamlString = @"
                                                         Foreground="#1C1C1C" Margin="0,0,0,4"/>
                                             </Grid>
                                         </StackPanel>
-                                    </Border>
-                                    <Border Grid.Column="1" Style="{StaticResource Card}" Margin="10,0,0,0">
-                                        <StackPanel>
-                                            <TextBlock Text="Key Information &amp; Quick Stats" FontSize="16" FontWeight="SemiBold" Foreground="#1C1C1C" Margin="0,0,0,12"/>
+                                    
+                                        <!-- Schlüsselinformationen und Schnellstatistiken-Teil -->
+                                        <StackPanel Grid.Column="1" Margin="10,0,0,0"> <!-- Linker Rand für Abstand zur vorherigen Spalte -->
+                                            <TextBlock Text="Key Information and Quick Stats" FontSize="16" FontWeight="SemiBold" Foreground="#1C1C1C" Margin="0,0,0,12"/>
                                             <TextBlock x:Name="lblDashboardStats" Text="Loading key statistics..." FontSize="12" Foreground="#505050" TextWrapping="Wrap"/>
                                         </StackPanel>
-                                    </Border>
-                                </Grid>
+                                    </Grid>
+                                </Border>
 
-                                <!-- Untere Reihe: About und Copyright nebeneinander -->
-                                <Grid Grid.Row="1">
+                                <!-- Lower row: About and Copyright side by side -->
+                                <Grid Grid.Row="1"> <!-- This row takes the remaining vertical space -->
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="2*"/>
-                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="3*"/> <!-- 75% width -->
+                                        <ColumnDefinition Width="*"/>  <!-- 25% width -->
                                     </Grid.ColumnDefinitions>
 
-                                    <Border Grid.Column="0" Style="{StaticResource Card}" Margin="0,0,10,20">
+                                    <Border Grid.Column="0" Style="{StaticResource Card}" Margin="0,0,10,0"> <!-- Right margin for spacing, bottom margin is 0 -->
                                         <StackPanel>
-                                            <TextBlock Text="About This Tool" FontSize="16" FontWeight="SemiBold" Foreground="#1C1C1C" Margin="0,0,0,12"/>
-                                            <TextBlock TextWrapping="Wrap" Foreground="#505050">
-                                                <Run Text="easyDNS is a comprehensive PowerShell-based tool designed to simplify DNS server management on Windows Server."/>
+                                            <TextBlock Text="About this Tool" FontSize="16" FontWeight="SemiBold" Foreground="#1C1C1C" Margin="0,0,0,12"/>
+                                            <TextBlock TextWrapping="Wrap" Foreground="#505050" LineHeight="18">
+                                                <Run Text="easyDNS is a comprehensive PowerShell-based tool that significantly simplifies the management of DNS servers on Windows Server."/>
                                                 <LineBreak/>
-                                                <Run Text="It provides an intuitive graphical interface for viewing, creating, and managing DNS zones (Forward and Reverse) and various record types."/>
+                                                <Run Text="It offers an intuitive graphical user interface for viewing, creating, and managing DNS zones as well as various types of DNS records."/>
                                                 <LineBreak/>
                                                 <LineBreak/>
-                                                <Run Text="Key features include:"/>
-                                                <LineBreak/>
-                                                <Run Text="- Diagnostic tools (Ping, Nslookup, Cache Management, Service Control)"/>
-                                                <LineBreak/>
-                                                <Run Text="- Import/Export capabilities for DNS configurations"/>
-                                                <LineBreak/>
-                                                <Run Text="- DNSSEC management"/>
-                                                <LineBreak/>
-                                                <Run Text="- Audit/Logging section for monitoring DNS server activity."/>
                                             </TextBlock>
+                                            
+                                            <!-- Key Features Table -->
+                                            <Grid Margin="0,10,0,10">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/> <!-- Feature 1 -->
+                                                    <RowDefinition Height="Auto"/> <!-- Feature 2 -->
+                                                    <RowDefinition Height="Auto"/> <!-- Feature 3 -->
+                                                    <RowDefinition Height="Auto"/> <!-- Feature 4 -->
+                                                    <RowDefinition Height="Auto"/> <!-- Feature 5 -->
+                                                    <RowDefinition Height="Auto"/> <!-- Feature 6 -->
+                                                    <RowDefinition Height="Auto"/> <!-- Feature 7 -->
+                                                </Grid.RowDefinitions>
+                                                <!-- Feature 1: Zone and Record Management -->
+                                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Zone and Record Management:" FontWeight="SemiBold" Foreground="#505050" Margin="0,5,15,5" VerticalAlignment="Top"/>
+                                                <TextBlock Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" Foreground="#505050" LineHeight="18" Margin="0,5,0,5">
+                                                    <Run Text="Easily create, view, and manage forward/reverse lookup zones and a wide array of common DNS record types (A, AAAA, CNAME, MX, TXT, SRV, etc.)."/>
+                                                </TextBlock>
+
+                                                <!-- Feature 2: Diagnostic Tools -->
+                                                <TextBlock Grid.Row="1" Grid.Column="0" Text="Diagnostic Tools:" FontWeight="SemiBold" Foreground="#505050" Margin="0,5,15,5" VerticalAlignment="Top"/>
+                                                <TextBlock Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Foreground="#505050" LineHeight="18" Margin="0,5,0,5">
+                                                    <Run Text="Access a comprehensive suite of diagnostic utilities including Ping, Nslookup, DNS server health tests, cache/service control, and diagnostics for forwarders and zone integrity."/>
+                                                </TextBlock>
+
+                                                <!-- Feature 3: Import and Export -->
+                                                <TextBlock Grid.Row="2" Grid.Column="0" Text="Import and Export:" FontWeight="SemiBold" Foreground="#505050" Margin="0,5,15,5" VerticalAlignment="Top"/>
+                                                <TextBlock Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Foreground="#505050" LineHeight="18" Margin="0,5,0,5">
+                                                    <Run Text="Seamlessly back up, restore, or migrate your DNS configurations using flexible import/export functionalities, supporting common formats like JSON or CSV."/>
+                                                </TextBlock>
+
+                                                <!-- Feature 4: DNSSEC Management -->
+                                                <TextBlock Grid.Row="3" Grid.Column="0" Text="DNSSEC Management:" FontWeight="SemiBold" Foreground="#505050" Margin="0,5,15,5" VerticalAlignment="Top"/>
+                                                <TextBlock Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Foreground="#505050" LineHeight="18" Margin="0,5,0,5">
+                                                    <Run Text="Secure your zones by signing and managing DNSSEC, including comprehensive key management (KSK, ZSK) and monitoring of signature status."/>
+                                                </TextBlock>
+
+                                                <!-- Feature 5: Monitoring and Logging -->
+                                                <TextBlock Grid.Row="4" Grid.Column="0" Text="Monitoring and Logging:" FontWeight="SemiBold" Foreground="#505050" Margin="0,5,15,5" VerticalAlignment="Top"/>
+                                                <TextBlock Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" Foreground="#505050" LineHeight="18" Margin="0,5,0,5">
+                                                    <Run Text="Keep a close eye on server activity with detailed monitoring, direct access to Windows Event Logs, and advanced, configurable debug logging for efficient troubleshooting."/>
+                                                </TextBlock>
+
+                                                <!-- Feature 6: Advanced Diagnostics -->
+                                                <TextBlock Grid.Row="5" Grid.Column="0" Text="Advanced Diagnostics:" FontWeight="SemiBold" Foreground="#505050" Margin="0,5,15,5" VerticalAlignment="Top"/>
+                                                <TextBlock Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" Foreground="#505050" LineHeight="18" Margin="0,5,0,5">
+                                                    <Run Text="Perform in-depth DNS benchmarks, latency tests, DNSSEC validation, DNS leak tests, TraceRoute analysis, and generate comprehensive diagnostic reports."/>
+                                                </TextBlock>
+
+                                                <!-- Feature 7: Real-time Monitoring -->
+                                                <TextBlock Grid.Row="6" Grid.Column="0" Text="Real-time Monitoring:" FontWeight="SemiBold" Foreground="#505050" Margin="0,5,15,5" VerticalAlignment="Top"/>
+                                                <TextBlock Grid.Row="6" Grid.Column="1" TextWrapping="Wrap" Foreground="#505050" LineHeight="18" Margin="0,5,0,5">
+                                                    <Run Text="Actively monitor DNS queries, server errors, and performance metrics in real-time; analyze query patterns and response times to proactively optimize DNS performance."/>
+                                                </TextBlock>
+                                            </Grid>
                                         </StackPanel>
                                     </Border>
 
                                     <!-- Author and Copyright Card -->
-                                    <Border Grid.Column="1" Style="{StaticResource Card}" Margin="10,0,0,20">
-                                        <StackPanel>
-                                            <TextBlock Text="Author &amp; Copyright" FontSize="16" FontWeight="SemiBold" Foreground="#1C1C1C" Margin="0,0,0,12"/>
-                                            <TextBlock Foreground="#505050" Margin="0,0,0,4">
+                                    <Border Grid.Column="1" Style="{StaticResource Card}" Margin="10,0,0,0"> <!-- Left margin for spacing, bottom margin is 0 -->
+                                        <StackPanel VerticalAlignment="Top"> <!-- VerticalAlignment="Top" added so content starts at the top if the card is taller than the content -->
+                                            <TextBlock Text="Author and Copyright" FontSize="16" FontWeight="SemiBold" Foreground="#1C1C1C" Margin="0,0,0,12"/>
+                                            <TextBlock Foreground="#505050" Margin="0,0,0,10">
                                                 <Run Text="Author: "/>
                                                 <Run Text="$($global:AppConfig.Author)" FontWeight="SemiBold"/>
                                             </TextBlock>
@@ -1120,13 +1169,21 @@ $global:XamlString = @"
                                                 <Run Text="Version: "/>
                                                 <Run Text="$($global:AppConfig.ScriptVersion)" FontWeight="SemiBold"/>
                                             </TextBlock>
+                                            <TextBlock Foreground="#505050" Margin="0,0,0,10">
+                                                <Run Text="Last Update: "/>
+                                                <Run Text="$($global:AppConfig.LastUpdate)" FontWeight="SemiBold"/>
+                                            </TextBlock>
                                             <TextBlock Foreground="#505050" Margin="0,0,0,4">
                                                 <Run Text="Website: "/>
                                                 <Run Text="$($global:AppConfig.Website)" Foreground="#0078D4" Cursor="Hand" FontWeight="SemiBold"/>
                                             </TextBlock>
-                                            <TextBlock Foreground="#505050" Margin="0,0,0,0">
-                                                <Run Text="Copyright: "/>
-                                                <Run Text="Copyright 2025 - Last Update: $($global:AppConfig.LastUpdate)" FontWeight="SemiBold"/>
+                                            <TextBlock Foreground="#505050" Margin="0,20,0,4">
+                                                <Run Text="License (free): "/>
+                                                <Run Text="Free for up to 3 employees"/>
+                                            </TextBlock>
+                                            <TextBlock Foreground="#505050" Margin="0,0,0,4">
+                                                <Run Text="License (paid): "/>
+                                                <Run Text="from 4 employees"/>
                                             </TextBlock>
                                         </StackPanel>
                                     </Border>
@@ -1898,8 +1955,8 @@ $global:XamlString = @"
                                                         <ColumnDefinition Width="*"/>
                                                         <ColumnDefinition Width="*"/>
                                                     </Grid.ColumnDefinitions>
-                                                    <Button Grid.Column="0" Name="btnEnableDebugLog" Content="Enable Debug Logging" Background="#FF8C00" Style="{StaticResource ModernButton}" Margin="0,0,4,0"/>
-                                                    <Button Grid.Column="1" Name="btnDisableDebugLog" Content="Disable Debug Logging" Style="{StaticResource ModernButton}" Margin="4,0,0,0"/>
+                                                    <Button Grid.Column="0" Name="btnEnableDebugLog" Content="Enable Debug Logging" Background="#FF8C00" Style="{StaticResource ModernButton}" Margin="0,0,2,0"/>
+                                                    <Button Grid.Column="1" Name="btnDisableDebugLog" Content="Disable Debug Logging" Style="{StaticResource ModernButton}" Margin="2,0,0,0"/>
                                                 </Grid>
                                                 
                                                 <Separator Margin="0,8,0,8"/> 
@@ -1921,16 +1978,32 @@ $global:XamlString = @"
                                                 <Separator Margin="0,8,0,8"/>
                                                 
                                                 <!-- Network Analysis -->
-                                                <TextBlock Text="Network Analysis:" FontWeight="SemiBold" Margin="0,0,0,4" Foreground="#1C1C1C"/>
-                                                <Button Name="btnNetworkProps" Content="Network Properties" Style="{StaticResource ModernButton}" Margin="0,0,0,4" HorizontalAlignment="Stretch"/>
-                                                <Button Name="btnTraceRoute" Content="Trace Route Analysis" Style="{StaticResource ModernButton}" Margin="0,0,0,8" HorizontalAlignment="Stretch"/>
-                                                
+                                                <TextBlock Text="Netzwerkanalyse:" FontWeight="SemiBold" Margin="0,0,0,4" Foreground="#1C1C1C"/>
+                                                <StackPanel Orientation="Vertical" Margin="0,0,0,8">
+                                                    <!-- Reihe 1: Zwei Buttons nebeneinander -->
+                                                    <UniformGrid Columns="2" Margin="0,0,0,8"> <!-- Abstand nach unten für die nächste Sektion -->
+                                                        <Button Name="btnNetworkProps" Content="Netzwerkeigenschaften" Style="{StaticResource ModernButton}" Margin="0,0,2,0"/>
+                                                        <Button Name="btnTraceRoute" Content="Trace-Route-Analyse" Style="{StaticResource ModernButton}" Margin="2,0,0,0"/>
+                                                    </UniformGrid>
+                                                    
+                                                    <!-- Reihe 2: Eingabefeld für Trace Route Target -->
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto"/> <!-- Label "Ziel:" -->
+                                                            <ColumnDefinition Width="*"/>    <!-- TextBox -->
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Grid.Column="0" Text="Trace Route Ziel:" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="#1C1C1C"/>
+                                                        <TextBox Grid.Column="1" Name="txtTraceRouteTarget" Style="{StaticResource ModernTextBox}"/>
+                                                    </Grid>
+                                                </StackPanel>
                                                 <Separator Margin="0,8,0,8"/>
                                                 
                                                 <!-- Export & Reports -->
-                                                <TextBlock Text="Reports & Export:" FontWeight="SemiBold" Margin="0,0,0,4" Foreground="#1C1C1C"/>
-                                                <Button Name="btnExportStats" Content="Export Statistics" Style="{StaticResource ModernButton}" Margin="0,0,0,4" HorizontalAlignment="Stretch"/>
-                                                <Button Name="btnGenerateReport" Content="Generate Health Report" Background="#107C10" Style="{StaticResource ModernButton}" Margin="0" HorizontalAlignment="Stretch"/>
+                                                <TextBlock Text="Reports &amp; Export:" FontWeight="SemiBold" Margin="0,0,0,4" Foreground="#1C1C1C"/>
+                                                <UniformGrid Columns="2" Margin="0,0,0,0">
+                                                    <Button Name="btnExportStats" Content="Export Statistics" Style="{StaticResource ModernButton}" Margin="0,0,2,0"/>
+                                                    <Button Name="btnGenerateReport" Content="Generate Health Report" Background="#107C10" Style="{StaticResource ModernButton}" Margin="2,0,0,0"/>
+                                                </UniformGrid>
                                             </StackPanel>
                                         </Border>
                                         <Border Grid.Column="2" Style="{StaticResource Card}" Margin="0">
@@ -1943,49 +2016,104 @@ $global:XamlString = @"
                                                         <Run Text="DE: Verwenden Sie erweiterte Diagnosetools fuer eine detaillierte Fehlerbehebung."/>
                                                     </TextBlock>
 
-                                                    <Grid Margin="0,0,0,8">
+                                                    <Grid Margin="0,0,0,4">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="Auto" MinWidth="180"/>
                                                             <ColumnDefinition Width="*"/>
                                                         </Grid.ColumnDefinitions>
-                                                        <TextBlock Grid.Column="0" Text="Enable Debug Logging:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
-                                                        <StackPanel Grid.Column="1">
-                                                            <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#505050"><Run Text="EN: " FontWeight="Bold"/><Run Text="Enable debug logging."/></TextBlock>
-                                                            <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#505050" Margin="0,2,0,0"><Run Text="DE: " FontWeight="Bold"/><Run Text="Debug Protokollierung aktivieren."/></TextBlock>
-                                                        </StackPanel>
+                                                        <TextBlock Grid.Column="0" Text="Enable / Disable Debug Logging:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                                                        <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
+                                                            <Run Text="EN: " FontWeight="Bold"/><Run Text="Enable or Disable debug logging."/><LineBreak/>
+                                                            <Run Text="DE: " FontWeight="Bold"/><Run Text="Debug Logging aktivieren oder deaktivieren."/>
+                                                        </TextBlock>
                                                     </Grid>
-                                                    <Grid Margin="0,0,0,8">
+                                                    <Grid Margin="0,0,0,4">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="Auto" MinWidth="180"/>
                                                             <ColumnDefinition Width="*"/>
                                                         </Grid.ColumnDefinitions>
-                                                        <TextBlock Grid.Column="0" Text="Disable Debug Logging:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
-                                                        <StackPanel Grid.Column="1">
-                                                            <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#505050"><Run Text="EN: " FontWeight="Bold"/><Run Text="Disable debug logging."/></TextBlock>
-                                                            <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#505050" Margin="0,2,0,0"><Run Text="DE: " FontWeight="Bold"/><Run Text="Debug Protokollierung deaktivieren."/></TextBlock>
-                                                        </StackPanel>
+                                                        <TextBlock Grid.Column="0" Text="DNS Benchmark:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                                                        <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
+                                                            <Run Text="EN: " FontWeight="Bold"/><Run Text="Benchmark DNS server performance."/><LineBreak/>
+                                                            <Run Text="DE: " FontWeight="Bold"/><Run Text="DNS Serverleistung benchmarken."/>
+                                                        </TextBlock>
                                                     </Grid>
-                                                    <Grid Margin="0,0,0,8">
+                                                    <Grid Margin="0,0,0,4">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" MinWidth="180"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Grid.Column="0" Text="Latency Test:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                                                        <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
+                                                            <Run Text="EN: " FontWeight="Bold"/><Run Text="Test DNS query latency."/><LineBreak/>
+                                                            <Run Text="DE: " FontWeight="Bold"/><Run Text="DNS Abfragelatenz testen."/>
+                                                        </TextBlock>
+                                                    </Grid>
+                                                    <Grid Margin="0,0,0,4">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" MinWidth="180"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Grid.Column="0" Text="DNSSEC Validation:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                                                        <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
+                                                            <Run Text="EN: " FontWeight="Bold"/><Run Text="Perform DNSSEC validation tests."/><LineBreak/>
+                                                            <Run Text="DE: " FontWeight="Bold"/><Run Text="DNSSEC Validierungstests durchfuehren."/>
+                                                        </TextBlock>
+                                                    </Grid>
+                                                    <Grid Margin="0,0,0,4">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" MinWidth="180"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Grid.Column="0" Text="DNS Leak Test:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                                                        <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
+                                                            <Run Text="EN: " FontWeight="Bold"/><Run Text="Check for DNS leaks."/><LineBreak/>
+                                                            <Run Text="DE: " FontWeight="Bold"/><Run Text="Auf DNS Lecks ueberpruefen."/>
+                                                        </TextBlock>
+                                                    </Grid>
+                                                    <Grid Margin="0,0,0,4">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" MinWidth="180"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Grid.Column="0" Text="Network Properties:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                                                        <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
+                                                            <Run Text="EN: " FontWeight="Bold"/><Run Text="View current network properties."/><LineBreak/>
+                                                            <Run Text="DE: " FontWeight="Bold"/><Run Text="Aktuelle Netzwerkeigenschaften anzeigen."/>
+                                                        </TextBlock>
+                                                    </Grid>
+                                                    <Grid Margin="0,0,0,4">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" MinWidth="180"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Grid.Column="0" Text="Trace Route Analysis:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                                                        <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
+                                                            <Run Text="EN: " FontWeight="Bold"/><Run Text="Perform a trace route to a target."/><LineBreak/>
+                                                            <Run Text="DE: " FontWeight="Bold"/><Run Text="Fuehren Sie eine Traceroute zu einem Ziel durch."/>
+                                                        </TextBlock>
+                                                    </Grid>
+                                                    <Grid Margin="0,0,0,4">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="Auto" MinWidth="180"/>
                                                             <ColumnDefinition Width="*"/>
                                                         </Grid.ColumnDefinitions>
                                                         <TextBlock Grid.Column="0" Text="Export Statistics:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
-                                                        <StackPanel Grid.Column="1">
-                                                            <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#505050"><Run Text="EN: " FontWeight="Bold"/><Run Text="Export server statistics."/></TextBlock>
-                                                            <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#505050" Margin="0,2,0,0"><Run Text="DE: " FontWeight="Bold"/><Run Text="Serverstatistiken exportieren."/></TextBlock>
-                                                        </StackPanel>
+                                                        <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
+                                                            <Run Text="EN: " FontWeight="Bold"/><Run Text="Export server statistics."/><LineBreak/>
+                                                            <Run Text="DE: " FontWeight="Bold"/><Run Text="Serverstatistiken exportieren."/>
+                                                        </TextBlock>
                                                     </Grid>
                                                     <Grid Margin="0,0,0,0">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="Auto" MinWidth="180"/>
                                                             <ColumnDefinition Width="*"/>
                                                         </Grid.ColumnDefinitions>
-                                                        <TextBlock Grid.Column="0" Text="Network Properties:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
-                                                        <StackPanel Grid.Column="1">
-                                                            <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#505050"><Run Text="EN: " FontWeight="Bold"/><Run Text="View current network properties."/></TextBlock>
-                                                            <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#505050" Margin="0,2,0,0"><Run Text="DE: " FontWeight="Bold"/><Run Text="Aktuelle Netzwerkeigenschaften anzeigen."/></TextBlock>
-                                                        </StackPanel>
+                                                        <TextBlock Grid.Column="0" Text="Generate Health Report:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                                                        <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
+                                                            <Run Text="EN: " FontWeight="Bold"/><Run Text="Generate a comprehensive health report."/><LineBreak/>
+                                                            <Run Text="DE: " FontWeight="Bold"/><Run Text="Erstellen Sie einen umfassenden Integritaetsbericht."/>
+                                                        </TextBlock>
                                                     </Grid>
                                                 </StackPanel>
                                             </ScrollViewer>
@@ -2023,16 +2151,20 @@ $global:XamlString = @"
                                                 
                                                 <!-- Query Analysis -->
                                                 <TextBlock Text="Query Analysis:" FontWeight="SemiBold" Margin="0,0,0,4" Foreground="#1C1C1C"/>
-                                                <Button Name="btnTopQueries" Content="Top Queries" Style="{StaticResource ModernButton}" Margin="0,0,0,4" HorizontalAlignment="Stretch"/>
-                                                <Button Name="btnQueryPatterns" Content="Query Patterns" Style="{StaticResource ModernButton}" Margin="0,0,0,4" HorizontalAlignment="Stretch"/>
-                                                <Button Name="btnFailedQueries" Content="Failed Queries" Style="{StaticResource ModernButton}" Margin="0,0,0,8" HorizontalAlignment="Stretch"/>
+                                                <UniformGrid Columns="3" Margin="0,0,0,8">
+                                                    <Button Name="btnTopQueries" Content="Top Queries" Style="{StaticResource ModernButton}" Margin="0,0,2,0"/>
+                                                    <Button Name="btnQueryPatterns" Content="Query Patterns" Style="{StaticResource ModernButton}" Margin="2,0,2,0"/>
+                                                    <Button Name="btnFailedQueries" Content="Failed Queries" Style="{StaticResource ModernButton}" Margin="2,0,0,0"/>
+                                                </UniformGrid>
                                                 
                                                 <Separator Margin="0,8,0,8"/>
                                                 
                                                 <!-- Performance Monitoring -->
                                                 <TextBlock Text="Performance:" FontWeight="SemiBold" Margin="0,0,0,4" Foreground="#1C1C1C"/>
-                                                <Button Name="btnResponseTimes" Content="Response Times" Style="{StaticResource ModernButton}" Margin="0,0,0,4" HorizontalAlignment="Stretch"/>
-                                                <Button Name="btnThroughputAnalysis" Content="Throughput Analysis" Style="{StaticResource ModernButton}" Margin="0" HorizontalAlignment="Stretch"/>
+                                                <UniformGrid Columns="2" Margin="0,0,0,0">
+                                                    <Button Name="btnResponseTimes" Content="Response Times" Style="{StaticResource ModernButton}" Margin="0,0,2,0"/>
+                                                    <Button Name="btnThroughputAnalysis" Content="Throughput Analysis" Style="{StaticResource ModernButton}" Margin="2,0,0,0"/>
+                                                </UniformGrid>
                                             </StackPanel>
                                         </Border>
                                         <Border Grid.Column="2" Style="{StaticResource Card}" Margin="0">
@@ -2042,41 +2174,76 @@ $global:XamlString = @"
                                                     <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#505050" Margin="0,0,0,12">
                                                         <Run Text="EN: Real-time monitoring of DNS server activity and performance metrics."/>
                                                         <LineBreak/>
-                                                        <Run Text="DE: Echtzeitüberwachung der DNS-Server-Aktivität und Leistungsmetriken."/>
+                                                        <Run Text="DE: Echtzeitüberwachung der DNS-Server-Aktivitaet und Leistungsmetriken."/>
                                                     </TextBlock>
 
-                                                    <Grid Margin="0,0,0,8">
+                                                    <Grid Margin="0,0,0,4">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="Auto" MinWidth="150"/>
                                                             <ColumnDefinition Width="*"/>
                                                         </Grid.ColumnDefinitions>
                                                         <TextBlock Grid.Column="0" Text="Real-time Monitor:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
-                                                        <StackPanel Grid.Column="1">
-                                                            <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#505050"><Run Text="EN: " FontWeight="Bold"/><Run Text="Monitor DNS queries and responses in real-time."/></TextBlock>
-                                                            <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#505050" Margin="0,2,0,0"><Run Text="DE: " FontWeight="Bold"/><Run Text="DNS-Abfragen und -Antworten in Echtzeit überwachen."/></TextBlock>
-                                                        </StackPanel>
+                                                        <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
+                                                            <Run Text="EN: " FontWeight="Bold"/><Run Text="Monitor DNS queries and responses in real-time."/><LineBreak/>
+                                                            <Run Text="DE: " FontWeight="Bold"/><Run Text="DNS-Abfragen und -Antworten in Echtzeit ueberwachen."/>
+                                                        </TextBlock>
                                                     </Grid>
-                                                    <Grid Margin="0,0,0,8">
+                                                    
+                                                    <Grid Margin="0,0,0,4">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="Auto" MinWidth="150"/>
                                                             <ColumnDefinition Width="*"/>
                                                         </Grid.ColumnDefinitions>
-                                                        <TextBlock Grid.Column="0" Text="Query Analysis:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
-                                                        <StackPanel Grid.Column="1">
-                                                            <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#505050"><Run Text="EN: " FontWeight="Bold"/><Run Text="Analyze query patterns and identify issues."/></TextBlock>
-                                                            <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#505050" Margin="0,2,0,0"><Run Text="DE: " FontWeight="Bold"/><Run Text="Abfragemuster analysieren und Probleme identifizieren."/></TextBlock>
-                                                        </StackPanel>
+                                                        <TextBlock Grid.Column="0" Text="Top Queries:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                                                        <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
+                                                            <Run Text="EN: " FontWeight="Bold"/><Run Text="View the most frequent DNS queries."/><LineBreak/>
+                                                            <Run Text="DE: " FontWeight="Bold"/><Run Text="Die haeufigsten DNS Abfragen anzeigen."/>
+                                                        </TextBlock>
+                                                    </Grid>
+                                                    <Grid Margin="0,0,0,4">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" MinWidth="150"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Grid.Column="0" Text="Query Patterns:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                                                        <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
+                                                            <Run Text="EN: " FontWeight="Bold"/><Run Text="Analyze patterns in DNS queries."/><LineBreak/>
+                                                            <Run Text="DE: " FontWeight="Bold"/><Run Text="Muster in DNS Abfragen analysieren."/>
+                                                        </TextBlock>
+                                                    </Grid>
+                                                    <Grid Margin="0,0,0,4">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" MinWidth="150"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Grid.Column="0" Text="Failed Queries:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                                                        <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
+                                                            <Run Text="EN: " FontWeight="Bold"/><Run Text="View a list of failed DNS queries."/><LineBreak/>
+                                                            <Run Text="DE: " FontWeight="Bold"/><Run Text="Eine Liste fehlgeschlagener DNS Abfragen anzeigen."/>
+                                                        </TextBlock>
+                                                    </Grid>
+
+                                                    <Grid Margin="0,0,0,4">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" MinWidth="150"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Grid.Column="0" Text="Response Times:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                                                        <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
+                                                            <Run Text="EN: " FontWeight="Bold"/><Run Text="Monitor DNS query response times."/><LineBreak/>
+                                                            <Run Text="DE: " FontWeight="Bold"/><Run Text="Antwortzeiten von DNS Abfragen ueberwachen."/>
+                                                        </TextBlock>
                                                     </Grid>
                                                     <Grid Margin="0,0,0,0">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="Auto" MinWidth="150"/>
                                                             <ColumnDefinition Width="*"/>
                                                         </Grid.ColumnDefinitions>
-                                                        <TextBlock Grid.Column="0" Text="Performance:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
-                                                        <StackPanel Grid.Column="1">
-                                                            <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#505050"><Run Text="EN: " FontWeight="Bold"/><Run Text="Monitor response times and throughput."/></TextBlock>
-                                                            <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#505050" Margin="0,2,0,0"><Run Text="DE: " FontWeight="Bold"/><Run Text="Antwortzeiten und Durchsatz überwachen."/></TextBlock>
-                                                        </StackPanel>
+                                                        <TextBlock Grid.Column="0" Text="Throughput Analysis:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                                                        <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
+                                                            <Run Text="EN: " FontWeight="Bold"/><Run Text="Analyze DNS server throughput."/><LineBreak/>
+                                                            <Run Text="DE: " FontWeight="Bold"/><Run Text="DNS Serverdurchsatz analysieren."/>
+                                                        </TextBlock>
                                                     </Grid>
                                                 </StackPanel>
                                             </ScrollViewer>
@@ -2153,7 +2320,7 @@ $global:XamlString = @"
 
                                             <TextBlock Grid.Column="0" Text="Network:" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="#1C1C1C"/>
                                             <TextBox Grid.Column="1" Name="txtReverseNetwork" Style="{StaticResource ModernTextBox}" 
-                                                    ToolTip="z.B. 192.168.1" Margin="0,0,16,0"/>
+                                                    ToolTip="e.g. 192.168.1" Margin="0,0,16,0"/>
                                             <TextBlock Grid.Column="2" Text="Prefix:" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="#1C1C1C"/>
                                             <TextBox Grid.Column="3" Name="txtReversePrefix" Text="24" Style="{StaticResource ModernTextBox}" Width="50" Margin="0,0,16,0"/>
                                             <TextBlock Grid.Column="4" Text="Replication:" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="#1C1C1C"/>
@@ -2252,7 +2419,7 @@ $global:XamlString = @"
                                                 <ComboBoxItem Content="XML"/>
                                                 <ComboBoxItem Content="JSON"/>
                                             </ComboBox>
-                                            <CheckBox Name="chkOverwriteExisting" Content="Überschreibe existierende Records" 
+                                            <CheckBox Name="chkOverwriteExisting" Content="Overwrite existing Records" 
                                                      IsChecked="False" Margin="0,0,0,12" Foreground="#1C1C1C"/>
                                         </StackPanel>
                                         <Button Grid.Row="1" Name="btnImportDNS" Content="Import DNS Configuration" 
@@ -2539,7 +2706,7 @@ $global:Controls = @{}
     "btnStartMonitoring", "btnStopMonitoring", "btnClearMonitoring", "chkMonitorQueries", "chkMonitorZoneChanges", "chkMonitorErrors", "chkMonitorSecurity", "lblMonitoringStatus",
     "btnRefreshStats", "lblDNSStats", "btnExportLogs", "btnClearLogs", "cmbLogLevel", "txtLogSearch", "btnFilterLogs", "btnRefreshLogs", "dgAuditLogs",
     # Erweiterte Diagnostic Tools Controls
-    "btnDNSBenchmark", "btnLatencyTest", "btnDNSSECValidation", "btnDNSLeakTest", "btnTraceRoute", "btnGenerateReport",
+    "btnDNSBenchmark", "btnLatencyTest", "btnDNSSECValidation", "btnDNSLeakTest", "btnTraceRoute", "btnGenerateReport", "txtTraceRouteTarget",
     # Monitoring Controls
     "btnStartRealTimeMonitor", "btnStopRealTimeMonitor", "chkMonitorDNSQueries", "chkMonitorDNSErrors", "chkMonitorPerformance",
     "btnTopQueries", "btnQueryPatterns", "btnFailedQueries", "btnResponseTimes", "btnThroughputAnalysis"
@@ -4390,40 +4557,40 @@ function Run-DNSSECValidation {
         try {
             $dnskeyResult = Resolve-DnsName -Name $target -Type DNSKEY -Server $global:Controls.txtDNSServer.Text -ErrorAction Stop
             if ($dnskeyResult) {
-                $global:Controls.txtDiagnosisOutput.AppendText("✓ DNSKEY-Records gefunden: $($dnskeyResult.Count) Schlüssel`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("[OK] DNSKEY-Records gefunden: $($dnskeyResult.Count) Schlüssel`r`n")
                 
                 foreach ($key in $dnskeyResult) {
                     $global:Controls.txtDiagnosisOutput.AppendText("  - Key-Tag: $($key.KeyTag), Algorithmus: $($key.Algorithm)`r`n")
                 }
             } else {
-                $global:Controls.txtDiagnosisOutput.AppendText("✗ Keine DNSKEY-Records gefunden`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("[FAIL] Keine DNSKEY-Records gefunden`r`n")
             }
         } catch {
-            $global:Controls.txtDiagnosisOutput.AppendText("✗ DNSKEY-Abfrage fehlgeschlagen: $_`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("[FAIL] DNSKEY-Abfrage fehlgeschlagen: $_`r`n")
         }
         
         # DS-Record abfragen (bei Parent-Zone)
         try {
             $dsResult = Resolve-DnsName -Name $target -Type DS -ErrorAction SilentlyContinue
             if ($dsResult) {
-                $global:Controls.txtDiagnosisOutput.AppendText("✓ DS-Records gefunden: $($dsResult.Count) Records`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("[OK] DS-Records gefunden: $($dsResult.Count) Records`r`n")
             } else {
-                $global:Controls.txtDiagnosisOutput.AppendText("ℹ Keine DS-Records gefunden (möglicherweise nicht DNSSEC-signiert)`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("[INFO] Keine DS-Records gefunden (möglicherweise nicht DNSSEC-signiert)`r`n")
             }
         } catch {
-            $global:Controls.txtDiagnosisOutput.AppendText("ℹ DS-Abfrage nicht möglich`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("[INFO] DS-Abfrage nicht möglich`r`n")
         }
         
         # RRSIG-Records prüfen
         try {
             $rrsigResult = Resolve-DnsName -Name $target -Type RRSIG -ErrorAction SilentlyContinue
             if ($rrsigResult) {
-                $global:Controls.txtDiagnosisOutput.AppendText("✓ RRSIG-Records gefunden: $($rrsigResult.Count) Signaturen`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("[OK] RRSIG-Records gefunden: $($rrsigResult.Count) Signaturen`r`n")
             } else {
-                $global:Controls.txtDiagnosisOutput.AppendText("✗ Keine RRSIG-Records gefunden`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("[FAIL] Keine RRSIG-Records gefunden`r`n")
             }
         } catch {
-            $global:Controls.txtDiagnosisOutput.AppendText("✗ RRSIG-Abfrage fehlgeschlagen`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("[FAIL] RRSIG-Abfrage fehlgeschlagen`r`n")
         }
         
         # Externe DNSSEC-Validierung (falls verfügbar)
@@ -4503,82 +4670,199 @@ function Run-DNSLeakTest {
 }
 
 function Run-TraceRouteAnalysis {
-    $target = $global:Controls.txtDiagnosisTarget.Text.Trim()
+    # Prüfe zuerst das spezielle Trace Route Textfeld, dann das allgemeine
+    $target = ""
+    if ($global:Controls.txtTraceRouteTarget) {
+        $target = $global:Controls.txtTraceRouteTarget.Text.Trim()
+    }
+    
+    # Fallback auf allgemeines Diagnose-Textfeld wenn Trace Route Feld leer ist
+    if ([string]::IsNullOrEmpty($target) -and $global:Controls.txtDiagnosisTarget) {
+        $target = $global:Controls.txtDiagnosisTarget.Text.Trim()
+    }
+    
     if ([string]::IsNullOrEmpty($target)) {
-        Show-MessageBox "Bitte geben Sie ein Ziel für die Traceroute-Analyse ein." "Eingabe erforderlich" "Warning"
+        Show-MessageBox "Bitte geben Sie ein Ziel fuer die Traceroute-Analyse ein." "Eingabe erforderlich" "Warning"
         return
     }
     
+    # Sofortiges Feedback in der GUI
     $global:Controls.txtDiagnosisOutput.AppendText("=== TRACEROUTE-ANALYSE zu $target ===`r`n")
+    $global:Controls.txtDiagnosisOutput.AppendText("PowerShell Version: $($PSVersionTable.PSVersion.Major).$($PSVersionTable.PSVersion.Minor)`r`n")
+    $global:Controls.txtDiagnosisOutput.AppendText("Starte Analyse...`r`n")
+    
+    # UI aktualisieren
+    $global:Window.Dispatcher.Invoke([System.Windows.Threading.DispatcherPriority]::Render, [System.Action]{})
     
     try {
-        # Erst DNS-Auflösung
-        $global:Controls.txtDiagnosisOutput.AppendText("Löse DNS auf...`r`n")
+        # Erst DNS-Aufloesung
+        $global:Controls.txtDiagnosisOutput.AppendText("Schritt 1: DNS-Aufloesung...`r`n")
+        $global:Window.Dispatcher.Invoke([System.Windows.Threading.DispatcherPriority]::Render, [System.Action]{})
+        
         $dnsResult = Resolve-DnsName -Name $target -ErrorAction Stop
         $targetIP = ($dnsResult | Where-Object { $_.Type -eq "A" } | Select-Object -First 1).IPAddress
         
         if ($targetIP) {
-            $global:Controls.txtDiagnosisOutput.AppendText("Ziel-IP: $targetIP`r`n`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("DNS-Aufloesung erfolgreich: $target -> $targetIP`r`n")
+            $global:Window.Dispatcher.Invoke([System.Windows.Threading.DispatcherPriority]::Render, [System.Action]{})
             
-            # Traceroute ausführen
-            $global:Controls.txtDiagnosisOutput.AppendText("Führe Traceroute durch...`r`n")
+            # Einfacher Ping-Test zuerst
+            $global:Controls.txtDiagnosisOutput.AppendText("Schritt 2: Ping-Test...`r`n")
+            $global:Window.Dispatcher.Invoke([System.Windows.Threading.DispatcherPriority]::Render, [System.Action]{})
             
             try {
-                # PowerShell Test-NetConnection für Traceroute
-                $traceResult = Test-NetConnection -ComputerName $targetIP -TraceRoute -ErrorAction Stop
-                
-                $global:Controls.txtDiagnosisOutput.AppendText("Traceroute zu $target ($targetIP):`r`n")
-                
-                if ($traceResult.TraceRoute) {
-                    for ($i = 0; $i -lt $traceResult.TraceRoute.Count; $i++) {
-                        $hop = $i + 1
-                        $hopIP = $traceResult.TraceRoute[$i]
-                        
-                        # Versuche Reverse-DNS für jeden Hop
-                        try {
-                            $reverseDns = Resolve-DnsName -Name $hopIP -Type PTR -ErrorAction SilentlyContinue
-                            $hopName = if ($reverseDns) { $reverseDns.NameHost } else { $hopIP }
-                        } catch {
-                            $hopName = $hopIP
-                        }
-                        
-                        $global:Controls.txtDiagnosisOutput.AppendText("$hop. $hopName ($hopIP)`r`n")
-                    }
+                                 # Verwende kompatible Parameter für PowerShell 5.1 und 7+
+                 if ($PSVersionTable.PSVersion.Major -ge 6) {
+                     $pingTest = Test-Connection -ComputerName $targetIP -Count 2 -TimeoutSeconds 5 -ErrorAction Stop
+                 } else {
+                     # PowerShell 5.1 - verwende Standard-Timeout
+                     $pingTest = Test-Connection -ComputerName $targetIP -Count 2 -ErrorAction Stop
+                 }
+                if ($pingTest) {
+                    $avgTime = ($pingTest | Measure-Object -Property ResponseTime -Average).Average
+                    $global:Controls.txtDiagnosisOutput.AppendText("Ping erfolgreich - Durchschnittliche Zeit: $([math]::Round($avgTime, 2))ms`r`n")
+                    $global:Window.Dispatcher.Invoke([System.Windows.Threading.DispatcherPriority]::Render, [System.Action]{})
+                    
+                    # Nur wenn Ping erfolgreich ist, versuche Traceroute
+                    $global:Controls.txtDiagnosisOutput.AppendText("Schritt 3: Traceroute (vereinfacht)...`r`n")
+                    $global:Window.Dispatcher.Invoke([System.Windows.Threading.DispatcherPriority]::Render, [System.Action]{})
+                    
+                                         # Verwende Job-basierte Traceroute mit striktem Timeout
+                     $global:Controls.txtDiagnosisOutput.AppendText("Starte Traceroute mit 30-Sekunden-Timeout...`r`n")
+                     $global:Window.Dispatcher.Invoke([System.Windows.Threading.DispatcherPriority]::Render, [System.Action]{})
+                     
+                     # Job für Traceroute mit Timeout
+                     $traceJob = Start-Job -ScriptBlock {
+                         param($targetIP)
+                         try {
+                             # Verwende tracert mit sehr aggressiven Timeouts
+                             $result = & tracert -h 10 -w 1000 $targetIP 2>&1
+                             return @{
+                                 Success = $true
+                                 Output = $result
+                                 Method = "tracert"
+                             }
+                         } catch {
+                                                           try {
+                                  # Fallback: PowerShell mit Timeout (nur PowerShell 6+)
+                                  if ($PSVersionTable.PSVersion.Major -ge 6) {
+                                      $testResult = Test-NetConnection -ComputerName $targetIP -TraceRoute -WarningAction SilentlyContinue -ErrorAction Stop
+                                      return @{
+                                          Success = $true
+                                          Output = $testResult.TraceRoute
+                                          Method = "powershell"
+                                      }
+                                  } else {
+                                      # PowerShell 5.1 - Test-NetConnection -TraceRoute nicht verfügbar
+                                      throw "Test-NetConnection -TraceRoute nicht verfügbar in PowerShell 5.1"
+                                  }
+                              } catch {
+                                 return @{
+                                     Success = $false
+                                     Error = $_.Exception.Message
+                                     Method = "failed"
+                                 }
+                             }
+                         }
+                     } -ArgumentList $targetIP
+                     
+                     # Warte maximal 30 Sekunden
+                     $traceTimeout = 30
+                     $traceCompleted = Wait-Job -Job $traceJob -Timeout $traceTimeout
+                     
+                     if ($traceCompleted) {
+                         try {
+                             $traceResult = Receive-Job -Job $traceJob
+                             Remove-Job -Job $traceJob -Force
+                             
+                             if ($traceResult.Success) {
+                                 $global:Controls.txtDiagnosisOutput.AppendText("Traceroute erfolgreich (Methode: $($traceResult.Method)):`r`n")
+                                 
+                                 if ($traceResult.Method -eq "tracert") {
+                                     $global:Controls.txtDiagnosisOutput.AppendText("$($traceResult.Output -join "`r`n")`r`n")
+                                 } else {
+                                     # PowerShell-Ergebnis formatieren
+                                     for ($i = 0; $i -lt $traceResult.Output.Count; $i++) {
+                                         $hop = $i + 1
+                                         $hopIP = $traceResult.Output[$i]
+                                         $global:Controls.txtDiagnosisOutput.AppendText("$hop. $hopIP`r`n")
+                                     }
+                                 }
+                             } else {
+                                 $global:Controls.txtDiagnosisOutput.AppendText("Traceroute fehlgeschlagen: $($traceResult.Error)`r`n")
+                             }
+                         } catch {
+                             $global:Controls.txtDiagnosisOutput.AppendText("Fehler beim Verarbeiten der Traceroute-Ergebnisse: $_`r`n")
+                         }
+                     } else {
+                         # Timeout erreicht - Job beenden
+                         $global:Controls.txtDiagnosisOutput.AppendText("Traceroute-Timeout nach $traceTimeout Sekunden erreicht`r`n")
+                         $global:Controls.txtDiagnosisOutput.AppendText("Das Ziel blockiert moeglicherweise ICMP-Pakete oder ist nicht erreichbar`r`n")
+                         
+                         # Job zwangsweise beenden
+                         try {
+                             Stop-Job -Job $traceJob -PassThru | Remove-Job -Force
+                         } catch {
+                             # Ignoriere Fehler beim Job-Cleanup
+                         }
+                     }
+                    
                 } else {
-                    $global:Controls.txtDiagnosisOutput.AppendText("Traceroute-Daten nicht verfügbar`r`n")
-                }
-                
-                # Verbindungstest
-                if ($traceResult.TcpTestSucceeded) {
-                    $global:Controls.txtDiagnosisOutput.AppendText("`r`nVerbindungstest: Erfolgreich`r`n")
-                    $global:Controls.txtDiagnosisOutput.AppendText("Latenz: $($traceResult.PingReplyDetails.RoundtripTime)ms`r`n")
-                } else {
-                    $global:Controls.txtDiagnosisOutput.AppendText("`r`nVerbindungstest: Fehlgeschlagen`r`n")
+                    $global:Controls.txtDiagnosisOutput.AppendText("Ping fehlgeschlagen - Ziel nicht erreichbar`r`n")
+                    $global:Controls.txtDiagnosisOutput.AppendText("Traceroute wird uebersprungen.`r`n")
                 }
                 
             } catch {
-                # Fallback: Verwende tracert-Befehl
-                $global:Controls.txtDiagnosisOutput.AppendText("PowerShell-Traceroute fehlgeschlagen, verwende tracert...`r`n")
-                
-                try {
-                    $tracertResult = & tracert -h 15 $targetIP 2>&1
-                    $global:Controls.txtDiagnosisOutput.AppendText("$($tracertResult -join "`r`n")`r`n")
-                } catch {
-                    $global:Controls.txtDiagnosisOutput.AppendText("Tracert-Befehl fehlgeschlagen: $_`r`n")
-                }
+                $global:Controls.txtDiagnosisOutput.AppendText("Ping-Test fehlgeschlagen: $_`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("Traceroute wird uebersprungen.`r`n")
             }
             
+            # Port-Tests (schnell und einfach)
+            $global:Controls.txtDiagnosisOutput.AppendText("Schritt 4: Port-Tests...`r`n")
+            $global:Window.Dispatcher.Invoke([System.Windows.Threading.DispatcherPriority]::Render, [System.Action]{})
+            
+                         $commonPorts = @(80, 443, 53)  # Nur die wichtigsten Ports
+             foreach ($port in $commonPorts) {
+                 try {
+                     # Verwende kompatible Parameter je nach PowerShell-Version
+                     if ($PSVersionTable.PSVersion.Major -ge 6) {
+                         # PowerShell 6+ mit erweiterten Parametern
+                         $portTest = Test-NetConnection -ComputerName $targetIP -Port $port -WarningAction SilentlyContinue -ErrorAction SilentlyContinue -InformationLevel Quiet
+                         $status = if ($portTest) { "OFFEN" } else { "GESCHLOSSEN" }
+                     } else {
+                         # PowerShell 5.1 - einfachere Syntax
+                         $portTest = Test-NetConnection -ComputerName $targetIP -Port $port -WarningAction SilentlyContinue -ErrorAction SilentlyContinue
+                         $status = if ($portTest.TcpTestSucceeded) { "OFFEN" } else { "GESCHLOSSEN" }
+                     }
+                     $global:Controls.txtDiagnosisOutput.AppendText("Port $port`: $status`r`n")
+                 } catch {
+                     $global:Controls.txtDiagnosisOutput.AppendText("Port $port`: TEST FEHLGESCHLAGEN`r`n")
+                 }
+                 # UI zwischen Port-Tests aktualisieren
+                 $global:Window.Dispatcher.Invoke([System.Windows.Threading.DispatcherPriority]::Render, [System.Action]{})
+             }
+            
         } else {
-            $global:Controls.txtDiagnosisOutput.AppendText("Keine IP-Adresse für $target gefunden`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("FEHLER: Keine IP-Adresse fuer $target gefunden`r`n")
         }
         
-        $global:Controls.txtDiagnosisOutput.AppendText("`r`nTraceroute-Analyse abgeschlossen!`r`n`r`n")
-        Write-Log "Traceroute-Analyse für $target durchgeführt" -Level "INFO"
+        # Abschluss
+        $global:Controls.txtDiagnosisOutput.AppendText("`r`n=== ANALYSE ABGESCHLOSSEN ===`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Hinweise:`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("- Bei Problemen: Firewall oder ICMP-Blockierung moeglich`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("- Alternative Tools: pathping, mtr, nmap`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("`r`n")
+        
+        Write-Log "Traceroute-Analyse fuer $target abgeschlossen" -Level "INFO"
         
     } catch {
-        $global:Controls.txtDiagnosisOutput.AppendText("Fehler bei der Traceroute-Analyse: $_`r`n`r`n")
-        Write-Log "Fehler bei der Traceroute-Analyse für $target`: $_" -Level "ERROR"
+        $global:Controls.txtDiagnosisOutput.AppendText("KRITISCHER FEHLER bei der Traceroute-Analyse: $_`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Bitte pruefen Sie die Netzwerkverbindung und versuchen Sie es erneut.`r`n`r`n")
+        Write-Log "Kritischer Fehler bei der Traceroute-Analyse fuer $target`: $_" -Level "ERROR"
     }
+    
+    # Sicherstellen, dass UI aktualisiert wird
+    $global:Window.Dispatcher.Invoke([System.Windows.Threading.DispatcherPriority]::Render, [System.Action]{})
 }
 
 function Generate-HealthReport {
@@ -4604,11 +4888,11 @@ function Generate-HealthReport {
         try {
             $testZone = Get-DnsServerZone -ComputerName $global:Controls.txtDNSServer.Text -ErrorAction Stop | Select-Object -First 1
             $reportData.Tests += @{ Name = "DNS-Server-Erreichbarkeit"; Status = "PASS"; Details = "Server ist erreichbar" }
-            $global:Controls.txtDiagnosisOutput.AppendText("   ✓ PASS - Server ist erreichbar`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("   [PASS] - Server ist erreichbar`r`n")
             $reportData.Summary.PassedTests++
         } catch {
             $reportData.Tests += @{ Name = "DNS-Server-Erreichbarkeit"; Status = "FAIL"; Details = $_.Exception.Message }
-            $global:Controls.txtDiagnosisOutput.AppendText("   ✗ FAIL - Server nicht erreichbar: $_`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("   [FAIL] - Server nicht erreichbar: $_`r`n")
             $reportData.Summary.FailedTests++
         }
         $reportData.Summary.TotalTests++
@@ -4619,16 +4903,16 @@ function Generate-HealthReport {
             $service = Get-Service -Name "DNS" -ErrorAction Stop
             if ($service.Status -eq "Running") {
                 $reportData.Tests += @{ Name = "DNS-Dienst-Status"; Status = "PASS"; Details = "Dienst läuft" }
-                $global:Controls.txtDiagnosisOutput.AppendText("   ✓ PASS - DNS-Dienst läuft`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("   [PASS] - DNS-Dienst läuft`r`n")
                 $reportData.Summary.PassedTests++
             } else {
                 $reportData.Tests += @{ Name = "DNS-Dienst-Status"; Status = "FAIL"; Details = "Dienst läuft nicht: $($service.Status)" }
-                $global:Controls.txtDiagnosisOutput.AppendText("   ✗ FAIL - DNS-Dienst läuft nicht: $($service.Status)`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("   [FAIL] - DNS-Dienst läuft nicht: $($service.Status)`r`n")
                 $reportData.Summary.FailedTests++
             }
         } catch {
             $reportData.Tests += @{ Name = "DNS-Dienst-Status"; Status = "FAIL"; Details = "Dienst-Abfrage fehlgeschlagen" }
-            $global:Controls.txtDiagnosisOutput.AppendText("   ✗ FAIL - Dienst-Abfrage fehlgeschlagen`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("   [FAIL] - Dienst-Abfrage fehlgeschlagen`r`n")
             $reportData.Summary.FailedTests++
         }
         $reportData.Summary.TotalTests++
@@ -4639,16 +4923,16 @@ function Generate-HealthReport {
             $zones = Get-SafeDnsServerZone -DnsServerName $global:Controls.txtDNSServer.Text
             if ($zones.Count -gt 0) {
                 $reportData.Tests += @{ Name = "Zone-Konfiguration"; Status = "PASS"; Details = "$($zones.Count) Zonen konfiguriert" }
-                $global:Controls.txtDiagnosisOutput.AppendText("   ✓ PASS - $($zones.Count) Zonen konfiguriert`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("   [PASS] - $($zones.Count) Zonen konfiguriert`r`n")
                 $reportData.Summary.PassedTests++
             } else {
                 $reportData.Tests += @{ Name = "Zone-Konfiguration"; Status = "WARN"; Details = "Keine Zonen konfiguriert" }
-                $global:Controls.txtDiagnosisOutput.AppendText("   ⚠ WARN - Keine Zonen konfiguriert`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("   [WARN] - Keine Zonen konfiguriert`r`n")
                 $reportData.Summary.WarningTests++
             }
         } catch {
             $reportData.Tests += @{ Name = "Zone-Konfiguration"; Status = "FAIL"; Details = "Zone-Abfrage fehlgeschlagen" }
-            $global:Controls.txtDiagnosisOutput.AppendText("   ✗ FAIL - Zone-Abfrage fehlgeschlagen`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("   [FAIL] - Zone-Abfrage fehlgeschlagen`r`n")
             $reportData.Summary.FailedTests++
         }
         $reportData.Summary.TotalTests++
@@ -4660,12 +4944,12 @@ function Generate-HealthReport {
             $result = Resolve-DnsName -Name $testDomain -Server $global:Controls.txtDNSServer.Text -ErrorAction Stop
             if ($result) {
                 $reportData.Tests += @{ Name = "DNS-Auflösung"; Status = "PASS"; Details = "Externe Auflösung funktioniert" }
-                $global:Controls.txtDiagnosisOutput.AppendText("   ✓ PASS - Externe Auflösung funktioniert ($testDomain)`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("   [PASS] - Externe Auflösung funktioniert ($testDomain)`r`n")
                 $reportData.Summary.PassedTests++
             }
         } catch {
             $reportData.Tests += @{ Name = "DNS-Auflösung"; Status = "FAIL"; Details = "Externe Auflösung fehlgeschlagen" }
-            $global:Controls.txtDiagnosisOutput.AppendText("   ✗ FAIL - Externe Auflösung fehlgeschlagen`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("   [FAIL] - Externe Auflösung fehlgeschlagen`r`n")
             $reportData.Summary.FailedTests++
         }
         $reportData.Summary.TotalTests++
@@ -4680,20 +4964,20 @@ function Generate-HealthReport {
             
             if ($responseTime -lt 100) {
                 $reportData.Tests += @{ Name = "Performance-Test"; Status = "PASS"; Details = "Antwortzeit: $([math]::Round($responseTime, 2))ms" }
-                $global:Controls.txtDiagnosisOutput.AppendText("   ✓ PASS - Gute Performance: $([math]::Round($responseTime, 2))ms`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("   [PASS] - Gute Performance: $([math]::Round($responseTime, 2))ms`r`n")
                 $reportData.Summary.PassedTests++
             } elseif ($responseTime -lt 500) {
                 $reportData.Tests += @{ Name = "Performance-Test"; Status = "WARN"; Details = "Antwortzeit: $([math]::Round($responseTime, 2))ms" }
-                $global:Controls.txtDiagnosisOutput.AppendText("   ⚠ WARN - Langsame Performance: $([math]::Round($responseTime, 2))ms`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("   [WARN] - Langsame Performance: $([math]::Round($responseTime, 2))ms`r`n")
                 $reportData.Summary.WarningTests++
             } else {
                 $reportData.Tests += @{ Name = "Performance-Test"; Status = "FAIL"; Details = "Antwortzeit: $([math]::Round($responseTime, 2))ms" }
-                $global:Controls.txtDiagnosisOutput.AppendText("   ✗ FAIL - Sehr langsame Performance: $([math]::Round($responseTime, 2))ms`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("   [FAIL] - Sehr langsame Performance: $([math]::Round($responseTime, 2))ms`r`n")
                 $reportData.Summary.FailedTests++
             }
         } catch {
             $reportData.Tests += @{ Name = "Performance-Test"; Status = "FAIL"; Details = "Performance-Test fehlgeschlagen" }
-            $global:Controls.txtDiagnosisOutput.AppendText("   ✗ FAIL - Performance-Test fehlgeschlagen`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("   [FAIL] - Performance-Test fehlgeschlagen`r`n")
             $reportData.Summary.FailedTests++
         }
         $reportData.Summary.TotalTests++
@@ -4704,16 +4988,16 @@ function Generate-HealthReport {
             $forwarders = Get-DnsServerForwarder -ComputerName $global:Controls.txtDNSServer.Text -ErrorAction Stop
             if ($forwarders.IPAddress -and $forwarders.IPAddress.Count -gt 0) {
                 $reportData.Tests += @{ Name = "Forwarder-Konfiguration"; Status = "PASS"; Details = "$($forwarders.IPAddress.Count) Forwarder konfiguriert" }
-                $global:Controls.txtDiagnosisOutput.AppendText("   ✓ PASS - $($forwarders.IPAddress.Count) Forwarder konfiguriert`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("   [PASS] - $($forwarders.IPAddress.Count) Forwarder konfiguriert`r`n")
                 $reportData.Summary.PassedTests++
             } else {
                 $reportData.Tests += @{ Name = "Forwarder-Konfiguration"; Status = "WARN"; Details = "Keine Forwarder konfiguriert" }
-                $global:Controls.txtDiagnosisOutput.AppendText("   ⚠ WARN - Keine Forwarder konfiguriert`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("   [WARN] - Keine Forwarder konfiguriert`r`n")
                 $reportData.Summary.WarningTests++
             }
         } catch {
             $reportData.Tests += @{ Name = "Forwarder-Konfiguration"; Status = "FAIL"; Details = "Forwarder-Abfrage fehlgeschlagen" }
-            $global:Controls.txtDiagnosisOutput.AppendText("   ✗ FAIL - Forwarder-Abfrage fehlgeschlagen`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("   [FAIL] - Forwarder-Abfrage fehlgeschlagen`r`n")
             $reportData.Summary.FailedTests++
         }
         $reportData.Summary.TotalTests++
@@ -4721,9 +5005,9 @@ function Generate-HealthReport {
         # Zusammenfassung
         $global:Controls.txtDiagnosisOutput.AppendText("`r`n=== HEALTH-REPORT ZUSAMMENFASSUNG ===`r`n")
         $global:Controls.txtDiagnosisOutput.AppendText("Gesamt-Tests: $($reportData.Summary.TotalTests)`r`n")
-        $global:Controls.txtDiagnosisOutput.AppendText("Erfolgreich: $($reportData.Summary.PassedTests) ✓`r`n")
-        $global:Controls.txtDiagnosisOutput.AppendText("Warnungen: $($reportData.Summary.WarningTests) ⚠`r`n")
-        $global:Controls.txtDiagnosisOutput.AppendText("Fehlgeschlagen: $($reportData.Summary.FailedTests) ✗`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Erfolgreich: $($reportData.Summary.PassedTests) [PASS]`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Warnungen: $($reportData.Summary.WarningTests) [WARN]`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Fehlgeschlagen: $($reportData.Summary.FailedTests) [FAIL]`r`n")
         
         # Gesundheitsbewertung
         $healthScore = [math]::Round((($reportData.Summary.PassedTests + ($reportData.Summary.WarningTests * 0.5)) / $reportData.Summary.TotalTests) * 100, 1)
@@ -4746,27 +5030,22 @@ function Generate-HealthReport {
                         $reportData | ConvertTo-Json -Depth 5 | Out-File -FilePath $reportPath -Encoding UTF8
                     } else {
                         # Text-Format
-                        $textReport = @"
-DNS Health Report
-=================
-Zeitstempel: $($reportData.Timestamp)
-Server: $($reportData.Server)
-
-Test-Ergebnisse:
-"@
+                        $textReport = "DNS Health Report`n"
+                        $textReport += "=================`n"
+                        $textReport += "Zeitstempel: $($reportData.Timestamp)`n"
+                        $textReport += "Server: $($reportData.Server)`n`n"
+                        $textReport += "Test-Ergebnisse:`n"
+                        
                         foreach ($test in $reportData.Tests) {
-                            $textReport += "`n- $($test.Name): $($test.Status) - $($test.Details)"
+                            $textReport += "- $($test.Name): $($test.Status) - $($test.Details)`n"
                         }
                         
-                        $textReport += @"
-
-Zusammenfassung:
-- Gesamt-Tests: $($reportData.Summary.TotalTests)
-- Erfolgreich: $($reportData.Summary.PassedTests)
-- Warnungen: $($reportData.Summary.WarningTests)
-- Fehlgeschlagen: $($reportData.Summary.FailedTests)
-- Gesundheitsbewertung: $healthScore% ($healthRating)
-"@
+                        $textReport += "`nZusammenfassung:`n"
+                        $textReport += "- Gesamt-Tests: $($reportData.Summary.TotalTests)`n"
+                        $textReport += "- Erfolgreich: $($reportData.Summary.PassedTests)`n"
+                        $textReport += "- Warnungen: $($reportData.Summary.WarningTests)`n"
+                        $textReport += "- Fehlgeschlagen: $($reportData.Summary.FailedTests)`n"
+                        $textReport += "- Gesundheitsbewertung: $healthScore% ($healthRating)`n"
                         $textReport | Out-File -FilePath $reportPath -Encoding UTF8
                     }
                     
@@ -4786,6 +5065,452 @@ Zusammenfassung:
     } catch {
         $global:Controls.txtDiagnosisOutput.AppendText("Fehler bei der Health-Report-Generierung: $_`r`n`r`n")
         Write-Log "Fehler bei der Health-Report-Generierung: $_" -Level "ERROR"
+    }
+}
+
+###############################################################################
+# REAL-TIME MONITORING FUNKTIONEN
+###############################################################################
+
+# Globale Monitoring-Variablen
+$global:RealTimeMonitoringActive = $false
+$global:RealTimeMonitoringTimer = $null
+$global:MonitoringData = [System.Collections.ArrayList]::new()
+
+function Start-RealTimeMonitoring {
+    if ($global:RealTimeMonitoringActive) {
+        Show-MessageBox "Real-time Monitoring ist bereits aktiv." "Monitoring" "Information"
+        return
+    }
+    
+    try {
+        $global:RealTimeMonitoringActive = $true
+        $global:Controls.txtDiagnosisOutput.AppendText("=== REAL-TIME DNS MONITORING GESTARTET ===`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Ueberwache DNS-Server: $($global:Controls.txtDNSServer.Text)`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Monitoring-Einstellungen:`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("- DNS Queries: $($global:Controls.chkMonitorDNSQueries.IsChecked)`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("- DNS Errors: $($global:Controls.chkMonitorDNSErrors.IsChecked)`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("- Performance: $($global:Controls.chkMonitorPerformance.IsChecked)`r`n`r`n")
+        
+        # Timer für regelmäßige Überwachung
+        $global:RealTimeMonitoringTimer = New-Object System.Windows.Threading.DispatcherTimer
+        $global:RealTimeMonitoringTimer.Interval = [TimeSpan]::FromSeconds(10)  # Alle 10 Sekunden
+        
+        $global:RealTimeMonitoringTimer.Add_Tick({
+            try {
+                Collect-MonitoringData
+            } catch {
+                Write-Log "Fehler beim Real-time Monitoring: $_" -Level "ERROR"
+            }
+        })
+        
+        $global:RealTimeMonitoringTimer.Start()
+        
+        $global:Controls.txtDiagnosisOutput.AppendText("Real-time Monitoring aktiv - Daten werden alle 10 Sekunden gesammelt...`r`n`r`n")
+        Write-Log "Real-time DNS Monitoring gestartet" -Level "INFO"
+        
+    } catch {
+        $global:RealTimeMonitoringActive = $false
+        $global:Controls.txtDiagnosisOutput.AppendText("Fehler beim Starten des Real-time Monitorings: $_`r`n`r`n")
+        Write-Log "Fehler beim Starten des Real-time Monitorings: $_" -Level "ERROR"
+    }
+}
+
+function Stop-RealTimeMonitoring {
+    if (-not $global:RealTimeMonitoringActive) {
+        Show-MessageBox "Real-time Monitoring ist nicht aktiv." "Monitoring" "Information"
+        return
+    }
+    
+    try {
+        $global:RealTimeMonitoringActive = $false
+        if ($global:RealTimeMonitoringTimer) {
+            $global:RealTimeMonitoringTimer.Stop()
+            $global:RealTimeMonitoringTimer = $null
+        }
+        
+        $global:Controls.txtDiagnosisOutput.AppendText("=== REAL-TIME DNS MONITORING GESTOPPT ===`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Gesammelte Datenpunkte: $($global:MonitoringData.Count)`r`n`r`n")
+        
+        Write-Log "Real-time DNS Monitoring gestoppt" -Level "INFO"
+        
+    } catch {
+        Write-Log "Fehler beim Stoppen des Real-time Monitorings: $_" -Level "ERROR"
+    }
+}
+
+function Collect-MonitoringData {
+    try {
+        $timestamp = Get-Date
+        $monitoringEntry = @{
+            Timestamp = $timestamp
+            Server = $global:Controls.txtDNSServer.Text
+            Metrics = @{}
+        }
+        
+        # Performance-Monitoring
+        if ($global:Controls.chkMonitorPerformance.IsChecked) {
+            try {
+                $startTime = Get-Date
+                $testResult = Resolve-DnsName -Name "google.com" -Server $global:Controls.txtDNSServer.Text -ErrorAction Stop
+                $endTime = Get-Date
+                $responseTime = ($endTime - $startTime).TotalMilliseconds
+                
+                $monitoringEntry.Metrics.ResponseTime = [math]::Round($responseTime, 2)
+                $monitoringEntry.Metrics.QuerySuccess = $true
+                
+            } catch {
+                $monitoringEntry.Metrics.ResponseTime = -1
+                $monitoringEntry.Metrics.QuerySuccess = $false
+                $monitoringEntry.Metrics.Error = $_.Exception.Message
+            }
+        }
+        
+        # DNS-Server-Statistiken (falls verfügbar)
+        if ($global:Controls.chkMonitorDNSQueries.IsChecked) {
+            try {
+                $stats = Get-DnsServerStatistics -ComputerName $global:Controls.txtDNSServer.Text -ErrorAction SilentlyContinue
+                if ($stats) {
+                    $monitoringEntry.Metrics.TotalQueries = $stats.TotalQueries
+                    $monitoringEntry.Metrics.SuccessfulQueries = $stats.SuccessfulQueries
+                    $monitoringEntry.Metrics.FailedQueries = $stats.FailedQueries
+                }
+            } catch {
+                # Ignoriere Statistik-Fehler
+            }
+        }
+        
+        # Zur Monitoring-Datensammlung hinzufügen
+        $global:MonitoringData.Add($monitoringEntry) | Out-Null
+        
+        # Begrenzen auf letzte 100 Einträge
+        if ($global:MonitoringData.Count -gt 100) {
+            $global:MonitoringData.RemoveRange(0, $global:MonitoringData.Count - 100)
+        }
+        
+        # Live-Ausgabe (nur bei wichtigen Events)
+        if ($monitoringEntry.Metrics.QuerySuccess -eq $false) {
+            $global:Controls.txtDiagnosisOutput.AppendText("[$($timestamp.ToString('HH:mm:ss'))] [WARN] DNS-Abfrage fehlgeschlagen: $($monitoringEntry.Metrics.Error)`r`n")
+        } elseif ($monitoringEntry.Metrics.ResponseTime -gt 1000) {
+            $global:Controls.txtDiagnosisOutput.AppendText("[$($timestamp.ToString('HH:mm:ss'))] [WARN] Langsame Antwortzeit: $($monitoringEntry.Metrics.ResponseTime)ms`r`n")
+        }
+        
+    } catch {
+        Write-Log "Fehler beim Sammeln der Monitoring-Daten: $_" -Level "ERROR"
+    }
+}
+
+function Show-TopQueries {
+    $global:Controls.txtDiagnosisOutput.AppendText("=== TOP DNS-ABFRAGEN ===`r`n")
+    
+    try {
+        # Simulierte Top-Queries (in einer echten Implementierung würden diese aus DNS-Logs kommen)
+        $topQueries = @(
+            @{ Domain = "google.com"; Count = 1247; Type = "A" },
+            @{ Domain = "microsoft.com"; Count = 892; Type = "A" },
+            @{ Domain = "github.com"; Count = 634; Type = "A" },
+            @{ Domain = "stackoverflow.com"; Count = 421; Type = "A" },
+            @{ Domain = "office365.com"; Count = 387; Type = "A" },
+            @{ Domain = "outlook.com"; Count = 298; Type = "MX" },
+            @{ Domain = "windows.com"; Count = 267; Type = "A" },
+            @{ Domain = "azure.com"; Count = 234; Type = "A" },
+            @{ Domain = "linkedin.com"; Count = 198; Type = "A" },
+            @{ Domain = "youtube.com"; Count = 176; Type = "A" }
+        )
+        
+        $global:Controls.txtDiagnosisOutput.AppendText("Top 10 DNS-Abfragen (simuliert):`r`n`r`n")
+        
+        for ($i = 0; $i -lt $topQueries.Count; $i++) {
+            $rank = $i + 1
+            $query = $topQueries[$i]
+            $global:Controls.txtDiagnosisOutput.AppendText("$rank. $($query.Domain) ($($query.Type)) - $($query.Count) Abfragen`r`n")
+        }
+        
+        $global:Controls.txtDiagnosisOutput.AppendText("`r`nHinweis: Für echte Daten aktivieren Sie DNS-Debug-Logging`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("oder verwenden Sie DNS-Analyse-Tools wie DNSQuerySniffer.`r`n`r`n")
+        
+        Write-Log "Top-Queries-Analyse angezeigt" -Level "INFO"
+        
+    } catch {
+        $global:Controls.txtDiagnosisOutput.AppendText("Fehler bei der Top-Queries-Analyse: $_`r`n`r`n")
+        Write-Log "Fehler bei der Top-Queries-Analyse: $_" -Level "ERROR"
+    }
+}
+
+function Analyze-QueryPatterns {
+    $global:Controls.txtDiagnosisOutput.AppendText("=== DNS-ABFRAGE-MUSTER-ANALYSE ===`r`n")
+    
+    try {
+        if ($global:MonitoringData.Count -eq 0) {
+            $global:Controls.txtDiagnosisOutput.AppendText("Keine Monitoring-Daten verfügbar. Starten Sie zuerst das Real-time Monitoring.`r`n`r`n")
+            return
+        }
+        
+        $global:Controls.txtDiagnosisOutput.AppendText("Analysiere $($global:MonitoringData.Count) Datenpunkte...`r`n`r`n")
+        
+        # Antwortzeit-Analyse
+        $responseTimes = $global:MonitoringData | Where-Object { $_.Metrics.ResponseTime -gt 0 } | ForEach-Object { $_.Metrics.ResponseTime }
+        
+        if ($responseTimes.Count -gt 0) {
+            $stats = $responseTimes | Measure-Object -Average -Minimum -Maximum
+            $global:Controls.txtDiagnosisOutput.AppendText("=== ANTWORTZEIT-MUSTER ===`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("Durchschnitt: $([math]::Round($stats.Average, 2))ms`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("Minimum: $([math]::Round($stats.Minimum, 2))ms`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("Maximum: $([math]::Round($stats.Maximum, 2))ms`r`n")
+            
+            # Kategorisierung
+            $fast = ($responseTimes | Where-Object { $_ -lt 50 }).Count
+            $medium = ($responseTimes | Where-Object { $_ -ge 50 -and $_ -lt 200 }).Count
+            $slow = ($responseTimes | Where-Object { $_ -ge 200 }).Count
+            
+            $global:Controls.txtDiagnosisOutput.AppendText("`r`nVerteilung:`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("Schnell (<50ms): $fast ($([math]::Round(($fast/$responseTimes.Count)*100, 1))%)`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("Mittel (50-200ms): $medium ($([math]::Round(($medium/$responseTimes.Count)*100, 1))%)`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("Langsam (>200ms): $slow ($([math]::Round(($slow/$responseTimes.Count)*100, 1))%)`r`n")
+        }
+        
+        # Fehler-Analyse
+        $errors = $global:MonitoringData | Where-Object { $_.Metrics.QuerySuccess -eq $false }
+        if ($errors.Count -gt 0) {
+            $errorRate = [math]::Round(($errors.Count / $global:MonitoringData.Count) * 100, 2)
+            $global:Controls.txtDiagnosisOutput.AppendText("`r`n=== FEHLER-MUSTER ===`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("Fehlerrate: $errorRate% ($($errors.Count) von $($global:MonitoringData.Count))`r`n")
+            
+            # Häufigste Fehler
+            $errorGroups = $errors | Group-Object { $_.Metrics.Error } | Sort-Object Count -Descending | Select-Object -First 5
+            $global:Controls.txtDiagnosisOutput.AppendText("`r`nHäufigste Fehler:`r`n")
+            foreach ($errorGroup in $errorGroups) {
+                $global:Controls.txtDiagnosisOutput.AppendText("- $($errorGroup.Name): $($errorGroup.Count)x`r`n")
+            }
+        }
+        
+        # Zeitliche Muster
+        $global:Controls.txtDiagnosisOutput.AppendText("`r`n=== ZEITLICHE MUSTER ===`r`n")
+        $timeSpan = ($global:MonitoringData | Measure-Object -Property Timestamp -Minimum -Maximum)
+        if ($timeSpan.Minimum -and $timeSpan.Maximum) {
+            $duration = $timeSpan.Maximum - $timeSpan.Minimum
+            $global:Controls.txtDiagnosisOutput.AppendText("Ueberwachungszeitraum: $([math]::Round($duration.TotalMinutes, 1)) Minuten`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("Datenpunkte pro Minute: $([math]::Round($global:MonitoringData.Count / $duration.TotalMinutes, 1))`r`n")
+        }
+        
+        $global:Controls.txtDiagnosisOutput.AppendText("`r`nAbfrage-Muster-Analyse abgeschlossen!`r`n`r`n")
+        Write-Log "Query-Pattern-Analyse durchgeführt für $($global:MonitoringData.Count) Datenpunkte" -Level "INFO"
+        
+    } catch {
+        $global:Controls.txtDiagnosisOutput.AppendText("Fehler bei der Abfrage-Muster-Analyse: $_`r`n`r`n")
+        Write-Log "Fehler bei der Query-Pattern-Analyse: $_" -Level "ERROR"
+    }
+}
+
+function Show-FailedQueries {
+    $global:Controls.txtDiagnosisOutput.AppendText("=== FEHLGESCHLAGENE DNS-ABFRAGEN ===`r`n")
+    
+    try {
+        if ($global:MonitoringData.Count -eq 0) {
+            $global:Controls.txtDiagnosisOutput.AppendText("Keine Monitoring-Daten verfügbar. Starten Sie zuerst das Real-time Monitoring.`r`n`r`n")
+            return
+        }
+        
+        $failedQueries = $global:MonitoringData | Where-Object { $_.Metrics.QuerySuccess -eq $false }
+        
+        if ($failedQueries.Count -eq 0) {
+            $global:Controls.txtDiagnosisOutput.AppendText("Keine fehlgeschlagenen Abfragen in den letzten $($global:MonitoringData.Count) Datenpunkten gefunden.`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("Das ist ein gutes Zeichen! [OK]`r`n`r`n")
+        } else {
+            $global:Controls.txtDiagnosisOutput.AppendText("Gefundene fehlgeschlagene Abfragen: $($failedQueries.Count)`r`n`r`n")
+            
+            foreach ($failed in $failedQueries) {
+                $global:Controls.txtDiagnosisOutput.AppendText("[$($failed.Timestamp.ToString('HH:mm:ss'))] Server: $($failed.Server)`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("  Fehler: $($failed.Metrics.Error)`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("------------------------`r`n")
+            }
+            
+            # Fehler-Statistiken
+            $errorGroups = $failedQueries | Group-Object { $_.Metrics.Error } | Sort-Object Count -Descending
+            $global:Controls.txtDiagnosisOutput.AppendText("`r`n=== FEHLER-STATISTIKEN ===`r`n")
+            foreach ($errorGroup in $errorGroups) {
+                $percentage = [math]::Round(($errorGroup.Count / $failedQueries.Count) * 100, 1)
+                $global:Controls.txtDiagnosisOutput.AppendText("$($errorGroup.Name): $($errorGroup.Count)x ($percentage%)`r`n")
+            }
+        }
+        
+        $global:Controls.txtDiagnosisOutput.AppendText("`r`nFehlgeschlagene Abfragen-Analyse abgeschlossen!`r`n`r`n")
+        Write-Log "Failed-Queries-Analyse angezeigt: $($failedQueries.Count) Fehler" -Level "INFO"
+        
+    } catch {
+        $global:Controls.txtDiagnosisOutput.AppendText("Fehler bei der Analyse fehlgeschlagener Abfragen: $_`r`n`r`n")
+        Write-Log "Fehler bei der Failed-Queries-Analyse: $_" -Level "ERROR"
+    }
+}
+
+function Analyze-ResponseTimes {
+    $global:Controls.txtDiagnosisOutput.AppendText("=== ANTWORTZEIT-ANALYSE ===`r`n")
+    
+    try {
+        if ($global:MonitoringData.Count -eq 0) {
+            $global:Controls.txtDiagnosisOutput.AppendText("Keine Monitoring-Daten verfügbar. Starten Sie zuerst das Real-time Monitoring.`r`n`r`n")
+            return
+        }
+        
+        $responseTimes = $global:MonitoringData | Where-Object { $_.Metrics.ResponseTime -gt 0 } | ForEach-Object { $_.Metrics.ResponseTime }
+        
+        if ($responseTimes.Count -eq 0) {
+            $global:Controls.txtDiagnosisOutput.AppendText("Keine gültigen Antwortzeit-Daten verfügbar.`r`n`r`n")
+            return
+        }
+        
+        $global:Controls.txtDiagnosisOutput.AppendText("Analysiere $($responseTimes.Count) Antwortzeiten...`r`n`r`n")
+        
+        # Basis-Statistiken
+        $stats = $responseTimes | Measure-Object -Average -Minimum -Maximum
+        $global:Controls.txtDiagnosisOutput.AppendText("=== BASIS-STATISTIKEN ===`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Durchschnitt: $([math]::Round($stats.Average, 2))ms`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Minimum: $([math]::Round($stats.Minimum, 2))ms`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Maximum: $([math]::Round($stats.Maximum, 2))ms`r`n")
+        
+        # Perzentile berechnen
+        $sortedTimes = $responseTimes | Sort-Object
+        $p50 = $sortedTimes[[math]::Floor($sortedTimes.Count * 0.5)]
+        $p90 = $sortedTimes[[math]::Floor($sortedTimes.Count * 0.9)]
+        $p95 = $sortedTimes[[math]::Floor($sortedTimes.Count * 0.95)]
+        
+        $global:Controls.txtDiagnosisOutput.AppendText("`r`n=== PERZENTILE ===`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("50. Perzentil (Median): $([math]::Round($p50, 2))ms`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("90. Perzentil: $([math]::Round($p90, 2))ms`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("95. Perzentil: $([math]::Round($p95, 2))ms`r`n")
+        
+        # Performance-Kategorien
+        $excellent = ($responseTimes | Where-Object { $_ -lt 20 }).Count
+        $good = ($responseTimes | Where-Object { $_ -ge 20 -and $_ -lt 50 }).Count
+        $acceptable = ($responseTimes | Where-Object { $_ -ge 50 -and $_ -lt 100 }).Count
+        $slow = ($responseTimes | Where-Object { $_ -ge 100 -and $_ -lt 500 }).Count
+        $verySlow = ($responseTimes | Where-Object { $_ -ge 500 }).Count
+        
+        $global:Controls.txtDiagnosisOutput.AppendText("`r`n=== PERFORMANCE-VERTEILUNG ===`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Ausgezeichnet (<20ms): $excellent ($([math]::Round(($excellent/$responseTimes.Count)*100, 1))%)`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Gut (20-50ms): $good ($([math]::Round(($good/$responseTimes.Count)*100, 1))%)`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Akzeptabel (50-100ms): $acceptable ($([math]::Round(($acceptable/$responseTimes.Count)*100, 1))%)`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Langsam (100-500ms): $slow ($([math]::Round(($slow/$responseTimes.Count)*100, 1))%)`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Sehr langsam (>500ms): $verySlow ($([math]::Round(($verySlow/$responseTimes.Count)*100, 1))%)`r`n")
+        
+        # Performance-Bewertung
+        $avgTime = $stats.Average
+        $rating = if ($avgTime -lt 20) { "Ausgezeichnet" }
+                 elseif ($avgTime -lt 50) { "Gut" }
+                 elseif ($avgTime -lt 100) { "Akzeptabel" }
+                 elseif ($avgTime -lt 500) { "Langsam" }
+                 else { "Sehr langsam" }
+        
+        $global:Controls.txtDiagnosisOutput.AppendText("`r`n=== GESAMTBEWERTUNG ===`r`n")
+        $global:Controls.txtDiagnosisOutput.AppendText("Performance-Rating: $rating`r`n")
+        
+        # Empfehlungen
+        $global:Controls.txtDiagnosisOutput.AppendText("`r`n=== EMPFEHLUNGEN ===`r`n")
+        if ($avgTime -gt 100) {
+            $global:Controls.txtDiagnosisOutput.AppendText("- Prüfen Sie die Netzwerkverbindung zum DNS-Server`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("- Überprüfen Sie die DNS-Server-Auslastung`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("- Erwägen Sie lokale DNS-Caching-Lösungen`r`n")
+        } elseif ($avgTime -gt 50) {
+            $global:Controls.txtDiagnosisOutput.AppendText("- Performance ist akzeptabel, aber verbesserbar`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("- Überwachen Sie die Trends über längere Zeit`r`n")
+        } else {
+            $global:Controls.txtDiagnosisOutput.AppendText("- Ausgezeichnete DNS-Performance! [OK]`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("- Aktuelle Konfiguration beibehalten`r`n")
+        }
+        
+        $global:Controls.txtDiagnosisOutput.AppendText("`r`nAntwortzeit-Analyse abgeschlossen!`r`n`r`n")
+        Write-Log "Response-Time-Analyse durchgeführt: Durchschnitt $([math]::Round($stats.Average, 2))ms" -Level "INFO"
+        
+    } catch {
+        $global:Controls.txtDiagnosisOutput.AppendText("Fehler bei der Antwortzeit-Analyse: $_`r`n`r`n")
+        Write-Log "Fehler bei der Response-Time-Analyse: $_" -Level "ERROR"
+    }
+}
+
+function Analyze-Throughput {
+    $global:Controls.txtDiagnosisOutput.AppendText("=== DURCHSATZ-ANALYSE ===`r`n")
+    
+    try {
+        if ($global:MonitoringData.Count -eq 0) {
+            $global:Controls.txtDiagnosisOutput.AppendText("Keine Monitoring-Daten verfügbar. Starten Sie zuerst das Real-time Monitoring.`r`n`r`n")
+            return
+        }
+        
+        $global:Controls.txtDiagnosisOutput.AppendText("Analysiere Durchsatz basierend auf $($global:MonitoringData.Count) Datenpunkten...`r`n`r`n")
+        
+        # Zeitraum berechnen
+        $timeSpan = ($global:MonitoringData | Measure-Object -Property Timestamp -Minimum -Maximum)
+        if ($timeSpan.Minimum -and $timeSpan.Maximum) {
+            $duration = $timeSpan.Maximum - $timeSpan.Minimum
+            $durationMinutes = $duration.TotalMinutes
+            
+            $global:Controls.txtDiagnosisOutput.AppendText("=== DURCHSATZ-METRIKEN ===`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("Ueberwachungszeitraum: $([math]::Round($durationMinutes, 1)) Minuten`r`n")
+            $global:Controls.txtDiagnosisOutput.AppendText("Gesamte Datenpunkte: $($global:MonitoringData.Count)`r`n")
+            
+            if ($durationMinutes -gt 0) {
+                $queriesPerMinute = [math]::Round($global:MonitoringData.Count / $durationMinutes, 2)
+                $queriesPerSecond = [math]::Round($queriesPerMinute / 60, 2)
+                
+                $global:Controls.txtDiagnosisOutput.AppendText("Abfragen pro Minute: $queriesPerMinute`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("Abfragen pro Sekunde: $queriesPerSecond`r`n")
+                
+                # Erfolgsrate
+                $successfulQueries = ($global:MonitoringData | Where-Object { $_.Metrics.QuerySuccess -eq $true }).Count
+                $successRate = [math]::Round(($successfulQueries / $global:MonitoringData.Count) * 100, 2)
+                
+                $global:Controls.txtDiagnosisOutput.AppendText("`r`n=== ERFOLGSRATE ===`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("Erfolgreiche Abfragen: $successfulQueries von $($global:MonitoringData.Count)`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("Erfolgsrate: $successRate%`r`n")
+                
+                # Durchsatz-Bewertung
+                $global:Controls.txtDiagnosisOutput.AppendText("`r`n=== DURCHSATZ-BEWERTUNG ===`r`n")
+                if ($queriesPerSecond -lt 1) {
+                    $global:Controls.txtDiagnosisOutput.AppendText("Durchsatz: Niedrig (Monitoring-Intervall)`r`n")
+                    $global:Controls.txtDiagnosisOutput.AppendText("Hinweis: Dies spiegelt das Monitoring-Intervall wider, nicht die tatsächliche Server-Kapazität`r`n")
+                } else {
+                    $global:Controls.txtDiagnosisOutput.AppendText("Durchsatz: $queriesPerSecond Abfragen/Sekunde`r`n")
+                }
+                
+                # Kapazitäts-Schätzung
+                $global:Controls.txtDiagnosisOutput.AppendText("`r`n=== KAPAZITAETS-INFORMATION ===`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("Typische DNS-Server-Kapazitäten:`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("- Kleine Umgebung: 100-1.000 Abfragen/Sekunde`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("- Mittlere Umgebung: 1.000-10.000 Abfragen/Sekunde`r`n")
+                $global:Controls.txtDiagnosisOutput.AppendText("- Große Umgebung: 10.000+ Abfragen/Sekunde`r`n")
+                
+                # Trend-Analyse (falls genügend Daten)
+                if ($global:MonitoringData.Count -gt 10) {
+                    $firstHalf = $global:MonitoringData | Select-Object -First ([math]::Floor($global:MonitoringData.Count / 2))
+                    $secondHalf = $global:MonitoringData | Select-Object -Last ([math]::Floor($global:MonitoringData.Count / 2))
+                    
+                    $firstHalfAvg = ($firstHalf | Where-Object { $_.Metrics.ResponseTime -gt 0 } | Measure-Object -Property { $_.Metrics.ResponseTime } -Average).Average
+                    $secondHalfAvg = ($secondHalf | Where-Object { $_.Metrics.ResponseTime -gt 0 } | Measure-Object -Property { $_.Metrics.ResponseTime } -Average).Average
+                    
+                    if ($firstHalfAvg -and $secondHalfAvg) {
+                        $trend = $secondHalfAvg - $firstHalfAvg
+                        $global:Controls.txtDiagnosisOutput.AppendText("`r`n=== PERFORMANCE-TREND ===`r`n")
+                        if ($trend -gt 10) {
+                            $trendValue = [math]::Round($trend, 2)
+                            $global:Controls.txtDiagnosisOutput.AppendText("Trend: Performance verschlechtert sich ($trendValue ms langsamer)`r`n")
+                        } elseif ($trend -lt -10) {
+                            $trendValue = [math]::Round(-$trend, 2)
+                            $global:Controls.txtDiagnosisOutput.AppendText("Trend: Performance verbessert sich ($trendValue ms schneller)`r`n")
+                        } else {
+                            $trendValue = [math]::Round($trend, 2)
+                            $global:Controls.txtDiagnosisOutput.AppendText("Trend: Performance stabil ($trendValue ms Aenderung)`r`n")
+                        }
+                    }
+                }
+            }
+        }
+        
+        $global:Controls.txtDiagnosisOutput.AppendText("`r`nDurchsatz-Analyse abgeschlossen!`r`n`r`n")
+        Write-Log "Throughput-Analyse durchgeführt für $($global:MonitoringData.Count) Datenpunkte" -Level "INFO"
+        
+    } catch {
+        $global:Controls.txtDiagnosisOutput.AppendText("Fehler bei der Durchsatz-Analyse: $_`r`n`r`n")
+        Write-Log "Fehler bei der Throughput-Analyse: $_" -Level "ERROR"
     }
 }
 

@@ -1,348 +1,664 @@
-﻿[INFO] 2025-05-25 14:58:45.561 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 14:58:45.590 [Shutdown] - - Operationen: 3
-[INFO] 2025-05-25 14:58:45.631 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 14:58:45.638 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 14:58:45.647 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:00:27.427 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:00:27.876 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:00:27.912 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:00:27.975 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:00:28.096 [Navigation] - Panel-Wechsel zu 'dashboardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:28.126 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:00:28.159 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:00:28.206 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:00:31.037 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:00:34.659 [Navigation] - Panel-Wechsel zu 'forwardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:34.667 [Navigation] - Panel-Wechsel zu 'forwardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:41.591 [Navigation] - Panel-Wechsel zu 'reversePanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:41.601 [Navigation] - Panel-Wechsel zu 'reversePanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:42.796 [Navigation] - Panel-Wechsel zu 'forwardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:42.805 [Navigation] - Panel-Wechsel zu 'forwardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:43.299 [Navigation] - Panel-Wechsel zu 'reversePanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:43.334 [Navigation] - Panel-Wechsel zu 'reversePanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:43.785 [Navigation] - Panel-Wechsel zu 'recordsPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:43.795 [Navigation] - Panel-Wechsel zu 'recordsPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:44.461 [Navigation] - Panel-Wechsel zu 'importPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:44.476 [Navigation] - Panel-Wechsel zu 'importPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:45.166 [Navigation] - Panel-Wechsel zu 'dnssecPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:45.175 [Navigation] - Panel-Wechsel zu 'dnssecPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:46.681 [Navigation] - Panel-Wechsel zu 'toolsPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:46.691 [Navigation] - Panel-Wechsel zu 'toolsPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:47.401 [Navigation] - Panel-Wechsel zu 'forwardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:47.407 [Navigation] - Panel-Wechsel zu 'forwardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:00:48.345 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:00:48.353 [General] - Forward-Zonen-Liste aktualisiert: 3 Zonen
-[INFO] 2025-05-25 15:01:06.478 [Navigation] - Panel-Wechsel zu 'dashboardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:01:06.499 [Navigation] - Panel-Wechsel zu 'dashboardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:02:35.488 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:02:35.506 [Shutdown] - - Operationen: 3
-[INFO] 2025-05-25 15:02:35.514 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:02:35.522 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:02:35.533 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:19:34.813 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:19:35.249 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:19:35.311 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:19:35.330 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:19:35.338 [Navigation] - Show-Panel aufgerufen mit: dashboard
-[INFO] 2025-05-25 15:19:35.347 [Navigation] - Panel dashboardPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:19:35.354 [Navigation] - WARNUNG: Nav-Button btnDashboardpanel nicht gefunden
-[INFO] 2025-05-25 15:19:35.466 [Navigation] - Panel-Wechsel zu 'dashboardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:19:35.503 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:19:35.526 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:19:35.579 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:19:37.727 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:20:21.351 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:20:21.378 [Shutdown] - - Operationen: 2
-[INFO] 2025-05-25 15:20:21.386 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:20:21.395 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:20:21.421 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:20:24.384 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:20:24.791 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:20:24.828 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:20:24.855 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:20:24.875 [Navigation] - Show-Panel aufgerufen mit: dashboard
-[INFO] 2025-05-25 15:20:24.885 [Navigation] - Panel dashboardPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:20:24.892 [Navigation] - WARNUNG: Nav-Button btnDashboardpanel nicht gefunden
-[INFO] 2025-05-25 15:20:24.911 [Navigation] - Panel-Wechsel zu 'dashboardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:20:24.941 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:20:24.955 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:20:25.019 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:20:27.161 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:20:36.747 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:20:36.758 [Shutdown] - - Operationen: 2
-[INFO] 2025-05-25 15:20:36.769 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:20:36.776 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:20:36.795 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:20:39.922 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:20:40.334 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:20:40.370 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:20:40.394 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:20:40.422 [Navigation] - Show-Panel aufgerufen mit: dashboard
-[INFO] 2025-05-25 15:20:40.430 [Navigation] - Panel dashboardPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:20:40.436 [Navigation] - WARNUNG: Nav-Button btnDashboardpanel nicht gefunden
-[INFO] 2025-05-25 15:20:40.458 [Navigation] - Panel-Wechsel zu 'dashboardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:20:40.487 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:20:40.509 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:20:40.561 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:20:42.687 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:20:51.400 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:20:51.418 [Shutdown] - - Operationen: 2
-[INFO] 2025-05-25 15:20:51.434 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:20:51.448 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:20:51.466 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:20:54.825 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:20:55.248 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:20:55.285 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:20:55.305 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:20:55.314 [Navigation] - Show-Panel aufgerufen mit: dashboard
-[INFO] 2025-05-25 15:20:55.321 [Navigation] - Panel dashboardPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:20:55.327 [Navigation] - WARNUNG: Nav-Button btnDashboardpanel nicht gefunden
-[INFO] 2025-05-25 15:20:55.348 [Navigation] - Panel-Wechsel zu 'dashboardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:20:55.377 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:20:55.397 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:20:55.454 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:20:57.604 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:21:04.863 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:21:04.878 [Shutdown] - - Operationen: 2
-[INFO] 2025-05-25 15:21:04.889 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:21:04.897 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:21:04.913 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:21:07.615 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:21:08.047 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:21:08.085 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:21:08.111 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:21:08.134 [Navigation] - Show-Panel aufgerufen mit: dashboard
-[INFO] 2025-05-25 15:21:08.142 [Navigation] - Panel dashboardPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:21:08.148 [Navigation] - WARNUNG: Nav-Button btnDashboardpanel nicht gefunden
-[INFO] 2025-05-25 15:21:08.169 [Navigation] - Panel-Wechsel zu 'dashboardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:21:08.203 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:21:08.222 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:21:08.268 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:21:10.410 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:21:17.510 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:21:17.527 [Shutdown] - - Operationen: 2
-[INFO] 2025-05-25 15:21:17.544 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:21:17.555 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:21:17.580 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:21:20.366 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:21:20.802 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:21:20.875 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:21:20.896 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:21:20.943 [Navigation] - Show-Panel aufgerufen mit: dashboard
-[INFO] 2025-05-25 15:21:20.954 [Navigation] - Panel dashboardPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:21:20.964 [Navigation] - WARNUNG: Nav-Button btnDashboardpanel nicht gefunden
-[INFO] 2025-05-25 15:21:20.988 [Navigation] - Panel-Wechsel zu 'dashboardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:21:21.019 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:21:21.045 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:21:21.092 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:21:23.256 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:21:49.899 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:21:49.917 [Shutdown] - - Operationen: 2
-[INFO] 2025-05-25 15:21:49.926 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:21:49.932 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:21:49.945 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:21:52.473 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:21:52.889 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:21:52.975 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:21:52.988 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:21:53.033 [Navigation] - Show-Panel aufgerufen mit: dashboard
-[INFO] 2025-05-25 15:21:53.044 [Navigation] - Panel dashboardPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:21:53.050 [Navigation] - WARNUNG: Nav-Button btnDashboardpanel nicht gefunden
-[INFO] 2025-05-25 15:21:53.073 [Navigation] - Panel-Wechsel zu 'dashboardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:21:53.113 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:21:53.124 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:21:53.178 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:21:55.305 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:22:04.643 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:22:04.657 [Shutdown] - - Operationen: 2
-[INFO] 2025-05-25 15:22:04.666 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:22:04.673 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:22:04.701 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:22:07.541 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:22:07.963 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:22:07.997 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:22:08.033 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:22:08.044 [Navigation] - Show-Panel aufgerufen mit: dashboard
-[INFO] 2025-05-25 15:22:08.050 [Navigation] - Panel dashboardPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:22:08.057 [Navigation] - WARNUNG: Nav-Button btnDashboardpanel nicht gefunden
-[INFO] 2025-05-25 15:22:08.075 [Navigation] - Panel-Wechsel zu 'dashboardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:22:08.108 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:22:08.128 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:22:08.175 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:22:10.274 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:22:49.595 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:22:49.611 [Shutdown] - - Operationen: 2
-[INFO] 2025-05-25 15:22:49.617 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:22:49.624 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:22:49.642 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:22:51.941 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:22:52.349 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:22:52.382 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:22:52.413 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:22:52.422 [Navigation] - Show-Panel aufgerufen mit: dashboard
-[INFO] 2025-05-25 15:22:52.430 [Navigation] - Panel dashboardPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:22:52.438 [Navigation] - WARNUNG: Nav-Button btnDashboardpanel nicht gefunden
-[INFO] 2025-05-25 15:22:52.455 [Navigation] - Panel-Wechsel zu 'dashboardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:22:52.482 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:22:52.506 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:22:52.569 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:22:54.679 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:23:11.303 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:23:11.319 [Shutdown] - - Operationen: 2
-[INFO] 2025-05-25 15:23:11.325 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:23:11.334 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:23:11.346 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:23:14.398 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:23:14.800 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:23:14.836 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:23:14.868 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:23:14.877 [Navigation] - Show-Panel aufgerufen mit: dashboard
-[INFO] 2025-05-25 15:23:14.883 [Navigation] - Panel dashboardPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:23:14.890 [Navigation] - WARNUNG: Nav-Button btnDashboardpanel nicht gefunden
-[INFO] 2025-05-25 15:23:14.908 [Navigation] - Panel-Wechsel zu 'dashboardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:23:14.942 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:23:14.959 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:23:14.996 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:23:17.113 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:23:24.416 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:23:24.427 [Shutdown] - - Operationen: 2
-[INFO] 2025-05-25 15:23:24.437 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:23:24.444 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:23:24.460 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:23:26.774 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:23:27.180 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:23:27.213 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:23:27.252 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:23:27.263 [Navigation] - Show-Panel aufgerufen mit: dashboard
-[INFO] 2025-05-25 15:23:27.274 [Navigation] - Panel dashboardPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:23:27.295 [Navigation] - WARNUNG: Nav-Button btnDashboardpanel nicht gefunden
-[INFO] 2025-05-25 15:23:27.333 [Navigation] - Panel-Wechsel zu 'dashboardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:23:27.365 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:23:27.385 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:23:27.418 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:23:29.520 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:23:39.303 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:23:39.319 [Shutdown] - - Operationen: 2
-[INFO] 2025-05-25 15:23:39.326 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:23:39.331 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:23:39.346 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:23:42.454 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:23:42.861 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:23:42.895 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:23:42.905 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:23:42.913 [Navigation] - Show-Panel aufgerufen mit: dashboard
-[INFO] 2025-05-25 15:23:42.921 [Navigation] - Panel dashboardPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:23:42.933 [Navigation] - WARNUNG: Nav-Button btnDashboardpanel nicht gefunden
-[INFO] 2025-05-25 15:23:42.951 [Navigation] - Panel-Wechsel zu 'dashboardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:23:42.978 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:23:42.999 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:23:43.048 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:23:45.141 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:23:52.206 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:23:52.219 [Shutdown] - - Operationen: 2
-[INFO] 2025-05-25 15:23:52.227 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:23:52.235 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:23:52.245 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:23:54.835 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:23:55.235 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:23:55.269 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:23:55.301 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:23:55.312 [Navigation] - Show-Panel aufgerufen mit: dashboard
-[INFO] 2025-05-25 15:23:55.319 [Navigation] - Panel dashboardPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:23:55.331 [Navigation] - WARNUNG: Nav-Button btnDashboardpanel nicht gefunden
-[INFO] 2025-05-25 15:23:55.349 [Navigation] - Panel-Wechsel zu 'dashboardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:23:55.377 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:23:55.396 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:23:55.441 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:23:57.542 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:25:16.099 [Navigation] - Navigation-Button geklickt: Forward Zones
-[INFO] 2025-05-25 15:25:16.108 [Navigation] - Show-Panel aufgerufen mit: forward
-[INFO] 2025-05-25 15:25:16.115 [Navigation] - Panel forwardPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:25:16.122 [Navigation] - WARNUNG: Nav-Button btnForwardpanel nicht gefunden
-[INFO] 2025-05-25 15:25:16.234 [Navigation] - Panel-Wechsel zu 'forwardPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:25:18.083 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:25:18.092 [General] - Forward-Zonen-Liste aktualisiert: 3 Zonen
-[INFO] 2025-05-25 15:25:19.631 [Navigation] - Navigation-Button geklickt: Reverse Zones
-[INFO] 2025-05-25 15:25:19.645 [Navigation] - Show-Panel aufgerufen mit: reverse
-[INFO] 2025-05-25 15:25:19.660 [Navigation] - Panel reversePanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:25:19.666 [Navigation] - WARNUNG: Nav-Button btnReversepanel nicht gefunden
-[INFO] 2025-05-25 15:25:19.672 [Navigation] - Panel-Wechsel zu 'reversePanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:25:21.007 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:25:21.030 [General] - Reverse-Zonen-Liste aktualisiert: 3 Zonen
-[INFO] 2025-05-25 15:25:22.576 [Navigation] - Navigation-Button geklickt: DNS Records
-[INFO] 2025-05-25 15:25:22.585 [Navigation] - Show-Panel aufgerufen mit: records
-[INFO] 2025-05-25 15:25:22.592 [Navigation] - Panel recordsPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:25:22.598 [Navigation] - WARNUNG: Nav-Button btnRecordspanel nicht gefunden
-[INFO] 2025-05-25 15:25:22.613 [Navigation] - Panel-Wechsel zu 'recordsPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:25:24.290 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:25:28.527 [Navigation] - Navigation-Button geklickt: Import/Export
-[INFO] 2025-05-25 15:25:28.536 [Navigation] - Show-Panel aufgerufen mit: import
-[INFO] 2025-05-25 15:25:28.544 [Navigation] - Panel importPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:25:28.556 [Navigation] - WARNUNG: Nav-Button btnImportpanel nicht gefunden
-[INFO] 2025-05-25 15:25:28.562 [Navigation] - Panel-Wechsel zu 'importPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:25:29.123 [Navigation] - Navigation-Button geklickt: DNSSEC
-[INFO] 2025-05-25 15:25:29.133 [Navigation] - Show-Panel aufgerufen mit: dnssec
-[INFO] 2025-05-25 15:25:29.140 [Navigation] - Panel dnssecPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:25:29.146 [Navigation] - WARNUNG: Nav-Button btnDnssecpanel nicht gefunden
-[INFO] 2025-05-25 15:25:29.151 [Navigation] - Panel-Wechsel zu 'dnssecPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:25:30.747 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:25:30.785 [General] - DNSSEC-Status aktualisiert fuer 3 Zonen
-[INFO] 2025-05-25 15:25:32.338 [Navigation] - Navigation-Button geklickt: Diagnostic Tools
-[INFO] 2025-05-25 15:25:32.347 [Navigation] - Show-Panel aufgerufen mit: tools
-[INFO] 2025-05-25 15:25:32.355 [Navigation] - Panel toolsPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:25:32.363 [Navigation] - WARNUNG: Nav-Button btnToolspanel nicht gefunden
-[INFO] 2025-05-25 15:25:32.371 [Navigation] - Panel-Wechsel zu 'toolsPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:25:33.090 [Navigation] - Navigation-Button geklickt: Audit and Logs
-[INFO] 2025-05-25 15:25:33.101 [Navigation] - Show-Panel aufgerufen mit: audit
-[INFO] 2025-05-25 15:25:33.109 [Navigation] - Panel auditPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:25:33.115 [Navigation] - WARNUNG: Nav-Button btnAuditpanel nicht gefunden
-[INFO] 2025-05-25 15:25:33.121 [Navigation] - Panel-Wechsel zu 'auditPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:25:34.207 [Navigation] - Navigation-Button geklickt: Import/Export
-[INFO] 2025-05-25 15:25:34.217 [Navigation] - Show-Panel aufgerufen mit: import
-[INFO] 2025-05-25 15:25:34.223 [Navigation] - Panel importPanel ist jetzt sichtbar
-[WARN] 2025-05-25 15:25:34.229 [Navigation] - WARNUNG: Nav-Button btnImportpanel nicht gefunden
-[INFO] 2025-05-25 15:25:34.234 [Navigation] - Panel-Wechsel zu 'importPanel' - DNS-Verbindung: True
-[INFO] 2025-05-25 15:27:08.545 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:27:08.556 [Shutdown] - - Operationen: 6
-[INFO] 2025-05-25 15:27:08.566 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:27:08.572 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:27:08.587 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:28:12.298 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:28:12.744 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:28:12.957 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:28:12.978 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:28:13.083 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:28:13.114 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:28:13.293 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:28:15.423 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:28:25.411 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:28:25.427 [Shutdown] - - Operationen: 2
-[INFO] 2025-05-25 15:28:25.437 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:28:25.443 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:28:25.456 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:32:26.703 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:32:27.158 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:32:27.210 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:32:27.243 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:32:27.292 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:32:27.331 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:32:27.497 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:32:29.624 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:32:39.261 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:32:39.282 [Shutdown] - - Operationen: 2
-[INFO] 2025-05-25 15:32:39.289 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:32:39.300 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:32:39.311 [Shutdown] - easyDNS WPF beendet
-[INFO] 2025-05-25 15:34:29.398 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
-[INFO] 2025-05-25 15:34:29.851 [General] - WPF XAML erfolgreich geladen
-[INFO] 2025-05-25 15:34:29.891 [General] - Starte easyDNS WPF GUI...
-[INFO] 2025-05-25 15:34:29.926 [General] - Erkannter DNS-Server: localhost
-[INFO] 2025-05-25 15:34:29.967 [General] - easyDNS WPF gestartet
-[INFO] 2025-05-25 15:34:29.981 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
-[INFO] 2025-05-25 15:34:30.140 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
-[INFO] 2025-05-25 15:34:32.271 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
-[INFO] 2025-05-25 15:34:41.312 [Shutdown] - Performance-Statistiken:
-[INFO] 2025-05-25 15:34:41.325 [Shutdown] - - Operationen: 2
-[INFO] 2025-05-25 15:34:41.337 [Shutdown] - - Fehler: 0
-[INFO] 2025-05-25 15:34:41.343 [Shutdown] - - Fehlerrate: 0%
-[INFO] 2025-05-25 15:34:41.353 [Shutdown] - easyDNS WPF beendet
+﻿[INFO] 2025-05-25 15:51:19.615 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[ERROR] 2025-05-25 15:51:20.044 [General] - Fehler beim Laden des XAML: Ausnahme beim Aufrufen von "Parse" mit 1 Argument(en):  "Beim Analysieren von 'EntityName' ist ein Fehler aufgetreten. Zeile 1165, Position 75."
+[INFO] 2025-05-25 15:52:50.066 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 15:52:50.497 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 15:52:50.583 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 15:52:50.599 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 15:52:50.635 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 15:52:50.662 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 15:52:50.831 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 15:52:52.980 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 15:52:59.294 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 15:52:59.302 [General] - Forward-Zonen-Liste aktualisiert: 3 Zonen
+[INFO] 2025-05-25 15:53:01.939 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 15:53:01.960 [General] - Reverse-Zonen-Liste aktualisiert: 3 Zonen
+[INFO] 2025-05-25 15:53:04.367 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 15:53:12.704 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 15:53:12.742 [General] - DNSSEC-Status aktualisiert fuer 3 Zonen
+[INFO] 2025-05-25 15:53:33.007 [General] - DNS-Benchmark durchgefÃ¼hrt fÃ¼r 4 Server
+[INFO] 2025-05-25 16:02:56.937 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:02:56.953 [Shutdown] - - Operationen: 6
+[INFO] 2025-05-25 16:02:56.964 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:02:56.973 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:02:56.986 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:03:02.177 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:03:02.657 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:03:02.790 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:03:02.799 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:03:02.840 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:03:02.862 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:03:03.018 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:03:05.172 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:04:52.793 [General] - DNS-Benchmark durchgefÃ¼hrt fÃ¼r 4 Server
+[INFO] 2025-05-25 16:05:01.853 [General] - DNS-Leak-Test durchgefÃ¼hrt
+[INFO] 2025-05-25 16:05:18.095 [General] - Netzwerk-Eigenschaften angezeigt
+[INFO] 2025-05-25 16:05:30.316 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:05:31.515 [General] - DNS-Health-Report generiert: 100% (Ausgezeichnet)
+[INFO] 2025-05-25 16:06:10.759 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:06:10.781 [Shutdown] - - Operationen: 3
+[INFO] 2025-05-25 16:06:10.793 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:06:10.806 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:06:10.821 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:06:13.878 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:06:14.288 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:06:14.349 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:06:14.361 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:06:14.398 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:06:14.412 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:06:14.469 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:06:16.582 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:08:40.578 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:08:40.593 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 16:08:40.602 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:08:40.607 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:08:40.622 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:08:43.894 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:08:44.314 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:08:44.379 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:08:44.397 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:08:44.434 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:08:44.450 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:08:44.603 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:08:46.733 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:09:28.912 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:09:28.930 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 16:09:28.937 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:09:28.943 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:09:28.957 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:09:31.602 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:09:32.030 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:09:32.084 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:09:32.103 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:09:32.153 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:09:32.171 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:09:32.231 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:09:34.352 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:09:43.924 [General] - Top-Queries-Analyse angezeigt
+[INFO] 2025-05-25 16:10:40.031 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:10:40.048 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 16:10:40.056 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:10:40.064 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:10:40.075 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:10:42.978 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:10:43.405 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:10:43.454 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:10:43.474 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:10:43.524 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:10:43.536 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:10:43.673 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:10:45.786 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:11:42.999 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:11:43.018 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 16:11:43.029 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:11:43.038 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:11:43.048 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:11:45.911 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:11:46.336 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:11:46.382 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:11:46.402 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:11:46.463 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:11:46.474 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:11:46.618 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:11:48.725 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:13:03.434 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:13:03.455 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 16:13:03.463 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:13:03.471 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:13:03.488 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:13:06.273 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:13:06.703 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:13:06.764 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:13:06.778 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:13:06.817 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:13:06.843 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:13:06.978 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:13:09.089 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:13:32.426 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:13:32.448 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 16:13:32.452 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:13:32.460 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:13:32.472 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:13:36.322 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:13:36.738 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:13:36.795 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:13:36.807 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:13:36.837 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:13:36.849 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:13:36.896 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:13:39.005 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:16:44.728 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:16:44.746 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 16:16:44.752 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:16:44.759 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:16:44.774 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:16:47.807 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:16:48.227 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:16:48.278 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:16:48.297 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:16:48.353 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:16:48.383 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:16:48.537 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:16:50.640 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:19:28.253 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:19:28.274 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 16:19:28.282 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:19:28.288 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:19:28.296 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:19:31.452 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:19:31.882 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:19:31.949 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:19:31.971 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:19:32.002 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:19:32.014 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:19:32.151 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:19:34.257 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:20:01.169 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:20:01.187 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 16:20:01.193 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:20:01.200 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:20:01.218 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:20:03.739 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:20:04.138 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:20:04.185 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:20:04.203 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:20:04.232 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:20:04.254 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:20:04.312 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:20:06.412 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:30:30.889 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:30:30.905 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 16:30:30.912 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:30:30.921 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:30:30.934 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:30:33.990 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:30:34.436 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:30:34.485 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:30:34.503 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:30:34.555 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:30:34.565 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:30:34.718 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:30:36.865 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:33:48 - Lokaler DNS-Server erkannt
+[INFO] 2025-05-25 16:33:48 - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:33:48 - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:33:48 - Erkannter DNS-Server: localhost
+[DEBUG] 2025-05-25 16:33:48 - Panel gewechselt zu: dashboardPanel
+[INFO] 2025-05-25 16:33:48 - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:33:49 - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[DEBUG] 2025-05-25 16:33:49 - Dashboard aktualisiert
+[INFO] 2025-05-25 16:34:00.923 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:34:01.423 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:34:01.568 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:34:01.576 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:34:01.643 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:34:01.656 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:34:02.305 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:34:04.780 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:34:42 - easyDNS WPF beendet
+[INFO] 2025-05-25 16:34:45.318 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:34:45.328 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 16:34:45.338 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:34:45.349 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:34:45.364 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:35:31 - Lokaler DNS-Server erkannt
+[INFO] 2025-05-25 16:35:31 - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:35:31 - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:35:31 - Erkannter DNS-Server: localhost
+[DEBUG] 2025-05-25 16:35:31 - Panel gewechselt zu: dashboardPanel
+[INFO] 2025-05-25 16:35:31 - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:35:31 - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[DEBUG] 2025-05-25 16:35:31 - Dashboard aktualisiert
+[INFO] 2025-05-25 16:35:36.741 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:35:37.179 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:35:37.212 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:35:37.218 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:35:37.247 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:35:37.256 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:35:37.295 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:35:39.412 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:36:46 - easyDNS WPF beendet
+[INFO] 2025-05-25 16:37:47.845 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:37:47.863 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 16:37:47.870 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:37:47.877 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:37:47.888 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:38:00.604 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:38:01.088 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:38:01.244 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:38:01.251 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:38:01.353 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:38:01.362 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:38:01.985 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:38:04.434 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:39:21.439 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:39:21.893 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:39:21.932 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:39:21.939 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:39:21.973 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:39:21.989 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:39:22.057 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:39:24.165 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:40:48.920 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:40:48.935 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 16:40:48.942 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:40:48.953 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:40:48.983 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:40:52.354 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:40:52.772 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:40:52.832 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:40:52.840 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:40:52.871 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:40:52.885 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:40:53.028 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:40:55.142 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:41:11.968 [General] - Traceroute-Analyse fuer 127.0.0.1 abgeschlossen
+[INFO] 2025-05-25 16:44:38.376 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:44:38.877 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:44:39.030 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:44:39.038 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:44:39.159 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:44:39.173 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:44:39.847 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:44:42.269 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:45:33.947 [General] - Traceroute-Analyse fuer phinit.de abgeschlossen
+[INFO] 2025-05-25 16:46:13.265 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:46:13.283 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 16:46:13.361 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:46:13.370 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:46:13.385 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:46:20.861 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:46:21.272 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:46:21.325 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:46:21.336 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:46:21.372 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:46:21.395 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:46:21.523 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:46:23.635 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:52:40.580 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:52:40.607 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 16:52:40.614 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:52:40.621 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:52:40.630 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:52:43.559 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:52:43.982 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:52:44.027 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:52:44.043 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:52:44.079 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:52:44.095 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:52:44.244 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:52:46.356 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 16:53:33.984 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 16:53:33.997 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 16:53:34.010 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 16:53:34.016 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 16:53:34.029 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 16:53:36.891 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 16:53:37.303 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 16:53:37.349 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 16:53:37.367 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 16:53:37.399 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 16:53:37.421 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 16:53:37.478 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 16:53:39.601 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:04:53.317 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:04:53.334 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:04:53.344 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:04:53.351 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:04:53.362 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:04:56.327 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:04:56.755 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:04:56.804 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:04:56.820 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:04:56.852 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:04:56.862 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:04:57.007 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:04:59.140 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:08:53.976 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:08:54.000 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:08:54.008 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:08:54.015 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:08:54.026 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:11:08.956 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:11:09.398 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:11:09.450 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:11:09.464 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:11:09.496 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:11:09.523 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:11:09.652 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:11:11.753 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:11:27.559 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:11:27.589 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:11:27.595 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:11:27.603 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:11:27.613 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:13:36.887 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:13:37.342 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:13:37.391 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:13:37.411 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:13:37.444 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:13:37.469 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:13:37.609 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:13:39.735 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:14:20.672 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:14:26.409 [General] - DNS-Monitoring gestartet
+[INFO] 2025-05-25 17:14:27.476 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:14:33.155 [General] - DNS-Monitoring gestoppt
+[INFO] 2025-05-25 17:14:34.162 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:14:36.397 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:14:47.004 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:14:47.020 [Shutdown] - - Operationen: 6
+[INFO] 2025-05-25 17:14:47.033 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:14:47.040 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:14:47.051 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:14:54.774 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:14:55.200 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:14:55.284 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:14:55.292 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:14:55.327 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:14:55.337 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:14:55.400 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:14:57.515 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:15:15.562 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:15:15.577 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:15:15.582 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:15:15.588 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:15:15.599 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:16:36.866 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:16:37.299 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:16:37.342 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:16:37.365 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:16:37.399 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:16:37.421 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:16:37.559 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:16:39.690 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:17:10.739 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:17:10.761 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:17:10.771 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:17:10.779 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:17:10.791 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:17:13.254 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:17:13.696 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:17:13.749 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:17:13.767 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:17:13.802 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:17:13.821 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:17:13.878 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:17:16.039 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:17:49.294 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:17:49.311 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:17:49.317 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:17:49.324 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:17:49.338 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:20:30.041 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:20:30.469 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:20:30.516 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:20:30.538 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:20:30.567 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:20:30.600 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:20:30.741 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:20:32.871 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:24:08.968 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:24:08.983 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:24:08.990 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:24:08.996 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:24:09.010 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:24:12.119 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:24:12.572 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:24:12.610 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:24:12.616 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:24:12.648 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:24:12.665 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:24:12.810 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:24:14.932 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:28:47.606 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:28:47.631 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:28:47.640 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:28:47.649 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:28:47.660 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:28:50.119 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:28:50.577 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:28:50.634 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:28:50.650 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:28:50.688 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:28:50.704 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:28:50.854 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:28:52.986 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:31:09.868 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:31:09.883 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:31:09.897 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:31:09.906 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:31:09.920 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:31:12.611 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:31:13.016 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:31:13.066 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:31:13.080 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:31:13.110 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:31:13.131 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:31:13.266 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:31:15.416 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:31:46.754 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:31:46.770 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:31:46.778 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:31:46.786 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:31:46.797 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:31:49.457 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:31:49.871 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:31:49.912 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:31:49.933 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:31:49.961 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:31:49.981 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:31:50.037 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:31:52.159 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:31:58.705 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:31:58.719 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:31:58.726 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:31:58.732 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:31:58.745 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:32:01.872 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:32:02.287 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:32:02.334 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:32:02.350 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:32:02.379 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:32:02.390 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:32:02.433 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:32:04.548 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:32:14.158 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:32:14.174 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:32:14.179 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:32:14.204 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:32:14.215 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:32:17.801 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:32:18.209 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:32:18.257 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:32:18.272 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:32:18.303 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:32:18.313 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:32:18.355 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:32:20.454 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:34:15.299 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:34:15.344 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:34:15.354 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:34:15.362 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:34:15.378 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:36:07.319 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:36:07.748 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:36:07.808 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:36:07.815 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:36:07.849 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:36:07.873 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:36:08.017 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:36:10.148 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:53:37.419 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:53:37.439 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:53:37.451 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:53:37.459 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:53:37.475 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:53:40.407 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:53:40.846 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:53:40.894 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:53:40.912 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:53:40.947 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:53:40.967 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:53:41.106 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:53:43.226 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:55:47.761 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:55:47.780 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:55:47.788 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:55:47.795 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:55:47.808 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:55:50.751 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:55:51.188 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:55:51.240 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:55:51.252 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:55:51.286 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:55:51.307 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:55:51.449 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:55:53.560 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:56:54.976 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:56:54.991 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:56:54.997 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:56:55.007 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:56:55.019 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:57:03.362 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:57:03.794 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:57:03.850 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:57:03.858 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:57:03.891 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:57:03.907 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:57:04.075 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:57:06.176 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:57:44.022 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:57:44.037 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:57:44.048 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:57:44.053 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:57:44.063 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:57:46.579 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:57:47.009 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:57:47.061 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:57:47.074 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:57:47.109 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:57:47.122 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:57:47.173 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:57:49.282 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:58:27.577 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:58:27.593 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:58:27.603 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:58:27.608 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:58:27.618 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:58:29.970 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:58:30.408 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:58:30.453 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:58:30.475 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:58:30.504 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:58:30.520 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:58:30.583 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:58:32.724 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:58:45.314 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:58:45.331 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:58:45.339 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:58:45.346 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:58:45.356 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:58:48.183 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:58:48.613 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:58:48.651 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:58:48.669 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:58:48.706 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:58:48.720 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:58:48.776 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:58:50.894 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:59:17.289 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:59:17.307 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:59:17.312 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:59:17.318 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:59:17.329 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:59:19.666 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:59:20.095 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:59:20.145 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:59:20.162 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:59:20.201 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:59:20.216 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:59:20.272 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:59:22.395 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 17:59:37.131 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 17:59:37.148 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 17:59:37.154 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 17:59:37.161 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 17:59:37.172 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 17:59:40.472 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 17:59:40.900 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 17:59:40.949 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 17:59:40.956 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 17:59:40.993 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 17:59:41.009 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 17:59:41.074 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 17:59:43.179 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 18:00:27.469 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 18:00:27.499 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 18:00:27.508 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 18:00:27.526 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 18:00:27.543 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 18:00:29.747 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 18:00:30.182 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 18:00:30.231 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 18:00:30.247 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 18:00:30.283 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 18:00:30.296 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 18:00:30.452 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 18:00:32.592 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 18:04:57.342 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 18:04:57.368 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 18:04:57.376 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 18:04:57.382 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 18:04:57.393 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 18:04:59.726 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 18:05:00.180 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 18:05:00.245 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 18:05:00.253 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 18:05:00.284 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 18:05:00.309 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 18:05:00.458 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 18:05:02.578 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 18:05:10.376 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 18:05:10.390 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 18:05:10.394 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 18:05:10.407 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 18:05:10.422 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 18:06:03.016 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 18:06:03.435 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 18:06:03.500 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 18:06:03.508 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 18:06:03.534 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 18:06:03.559 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 18:06:03.693 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 18:06:05.793 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 18:06:39.631 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 18:06:39.645 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 18:06:39.655 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 18:06:39.661 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 18:06:39.672 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 18:06:42.405 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 18:06:42.821 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 18:06:42.870 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 18:06:42.885 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 18:06:42.912 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 18:06:42.933 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 18:06:42.982 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 18:06:45.119 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 18:06:52.928 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 18:06:52.942 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 18:06:52.952 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 18:06:52.961 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 18:06:52.971 [Shutdown] - easyDNS WPF beendet
+[INFO] 2025-05-25 18:06:55.072 [Detection] - Lokaler DNS-Server erkannt - Automatische Verbindung wird hergestellt
+[INFO] 2025-05-25 18:06:55.480 [General] - WPF XAML erfolgreich geladen
+[INFO] 2025-05-25 18:06:55.527 [General] - Starte easyDNS WPF GUI...
+[INFO] 2025-05-25 18:06:55.540 [General] - Erkannter DNS-Server: localhost
+[INFO] 2025-05-25 18:06:55.568 [General] - easyDNS WPF gestartet
+[INFO] 2025-05-25 18:06:55.587 [General] - Stelle automatische Verbindung zu lokalem DNS-Server her...
+[INFO] 2025-05-25 18:06:55.632 [General] - Automatische Verbindung zu lokalem DNS-Server erfolgreich
+[INFO] 2025-05-25 18:06:57.907 [DNS] - DNS-Zonen abgerufen: 6 Zonen von Server localhost
+[INFO] 2025-05-25 18:07:19.021 [Shutdown] - Performance-Statistiken:
+[INFO] 2025-05-25 18:07:19.034 [Shutdown] - - Operationen: 2
+[INFO] 2025-05-25 18:07:19.038 [Shutdown] - - Fehler: 0
+[INFO] 2025-05-25 18:07:19.051 [Shutdown] - - Fehlerrate: 0%
+[INFO] 2025-05-25 18:07:19.069 [Shutdown] - easyDNS WPF beendet
