@@ -193,9 +193,6 @@ Contributions are welcome! Please:
 2. Create a feature branch
 3. Submit a pull request with detailed description
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Support & Contact
 
