@@ -927,7 +927,7 @@ $global:XamlString = @"
         </Grid.RowDefinitions>
 
         <!-- Header -->
-        <Border Grid.Row="0" Background="#F3F3F3" BorderBrush="#E0E0E0" BorderThickness="0,0,0,1">
+        <Border Grid.Row="0" Background="#142831" BorderBrush="#E0E0E0" BorderThickness="0,0,0,1">
             <Grid Margin="20,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -937,9 +937,9 @@ $global:XamlString = @"
 
                 <!-- App Name -->
                 <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
-                    <TextBlock Text="$($global:AppConfig.AppName) - $($global:AppConfig.ScriptVersion)" 
+                    <TextBlock Text="$($global:AppConfig.AppName)  $($global:AppConfig.ScriptVersion)" 
                               FontSize="20" FontWeight="SemiBold" 
-                              Foreground="#1C1C1C" VerticalAlignment="Center"/>
+                              Foreground="#e2e2e2" VerticalAlignment="Center"/>
                 </StackPanel>
             </Grid>
         </Border>
@@ -2775,7 +2775,7 @@ $global:XamlString = @"
         </Grid>
 
         <!-- Footer -->
-        <Border Grid.Row="2" Background="#F3F3F3" BorderBrush="#E0E0E0" BorderThickness="0,1,0,0">
+        <Border Grid.Row="2" Background="#142831" BorderBrush="#E0E0E0" BorderThickness="0,1,0,0">
             <!-- Consistent with Header -->
             <Grid Margin="20,0">
                 <Grid.ColumnDefinitions>
@@ -2785,16 +2785,16 @@ $global:XamlString = @"
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="0" Text="$($global:AppConfig.AppName)" 
-                          VerticalAlignment="Center" FontSize="11" Foreground="#505050"/>
+                          VerticalAlignment="Center" FontSize="11" Foreground="#e2e2e2"/>
 
                 <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="Copyright 2025 @" FontSize="11" Foreground="#505050" Margin="0,0,5,0"/>
-                    <TextBlock Text="by $($global:AppConfig.Author)" FontSize="11" Foreground="#505050" Margin="0,0,35,0"/>
-                    <TextBlock Text="$($global:AppConfig.Website)" FontSize="11" Foreground="#0078D4" Cursor="Hand"/>
+                    <TextBlock Text="Copyright 2025 @" FontSize="11" Foreground="#e2e2e2" Margin="0,0,5,0"/>
+                    <TextBlock Text="by $($global:AppConfig.Author)" FontSize="11" Foreground="#e2e2e2" Margin="0,0,35,0"/>
+                    <TextBlock Text="$($global:AppConfig.Website)" FontSize="11" Foreground="#d0e8ff" Cursor="Hand"/>
                 </StackPanel>
 
                 <TextBlock Grid.Column="2" Text="Script Version: $($global:AppConfig.ScriptVersion) - Last Update: $($global:AppConfig.LastUpdate)" 
-                          HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="11" Foreground="#505050"/>
+                          HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="11" Foreground="#e2e2e2"/>
             </Grid>
         </Border>
     </Grid>
