@@ -12,9 +12,9 @@
 $global:AppConfig = @{
     AppName = "easyDNS"
     Author = "PHscripts.de | Andreas Hepp"
-    ScriptVersion = "0.2.10"
+    ScriptVersion = "0.2.27"
     Website = "https://github.com/PS-easyIT/"
-    LastUpdate = "25.05.2025"
+    LastUpdate = "26.05.2025"
     
     # Design-Konfiguration (Windows 11 Style)
     ThemeColors = @{
@@ -246,7 +246,7 @@ function Get-DNSServerDetection {
     try {
         $dnsService = Get-Service -Name "DNS" -ErrorAction SilentlyContinue
         if ($dnsService -and $dnsService.Status -eq "Running") {
-            Write-Log "DNS-Dienst läuft lokal - Automatische Verbindung wird hergestellt" -Level "INFO" -Component "Detection"
+            Write-Log "DNS-Service is running locally - Automatic connection will be established" -Level "INFO" -Component "Detection"
             $result.Server = 'localhost'
             $result.IsLocalDNS = $true
             $result.AutoConnect = $true
@@ -262,7 +262,7 @@ function Get-DNSServerDetection {
             return $result
         }
     } catch {
-        Write-Log "DNS-Dienst-Prüfung fehlgeschlagen" -Level "DEBUG" -Component "Detection"
+        Write-Log "DNS-Service check failed" -Level "DEBUG" -Component "Detection"
     }
 
     # Prüfe Remote-DNS-Server in der Umgebung
@@ -275,12 +275,12 @@ function Get-DNSServerDetection {
             $result.AutoConnect = $false
         }
     } catch {
-        Write-Log "Domain DNS-Server Suche fehlgeschlagen" -Level "DEBUG" -Component "Detection"
+        Write-Log "Domain DNS-Server Search failed" -Level "DEBUG" -Component "Detection"
     }
 
     # Keine lokale DNS-Rolle gefunden - manuelle Verbindung erforderlich
     if ([string]::IsNullOrEmpty($result.Server)) {
-        Write-Log "Keine DNS-Server gefunden - Manuelle Serverauswahl erforderlich" -Level "WARN" -Component "Detection"
+        Write-Log "No DNS-Server found - Manual server selection required" -Level "WARN" -Component "Detection"
         $result.Server = ""
         $result.IsLocalDNS = $false
         $result.AutoConnect = $false
@@ -319,7 +319,7 @@ function Invoke-SafeOperation {
             $global:PerformanceCounters.LastOperationTime = $duration.TotalMilliseconds
             
             if ($attempt -gt 0) {
-                Write-Log "Operation erfolgreich nach $($attempt + 1) Versuchen" -Level "INFO" -Component $Component
+                Write-Log "Operation successful after $($attempt + 1) attempts" -Level "INFO" -Component $Component
             }
             
             return $result
@@ -331,7 +331,7 @@ function Invoke-SafeOperation {
                 throw
             }
             else {
-                Write-Log "Versuch $attempt von $($maxRetries + 1) fehlgeschlagen: $_" -Level "WARN" -Component $Component
+                Write-Log "Attempt $attempt of $($maxRetries + 1) failed: $_" -Level "WARN" -Component $Component
                 Start-Sleep -Seconds 2
             }
         }
@@ -348,7 +348,7 @@ function Test-DNSServerConnection {
     if (-not $ForceCheck -and $global:DNSConnectionStatus.ServerName -eq $ServerName) {
         $timeSinceLastCheck = (Get-Date) - $global:DNSConnectionStatus.LastChecked
         if ($timeSinceLastCheck.TotalSeconds -lt $global:DNSConnectionStatus.CacheValidSeconds) {
-            Write-Log "DNS-Verbindungsstatus aus Cache: $($global:DNSConnectionStatus.IsConnected)" -Level "DEBUG" -Component "Connection"
+            Write-Log "DNS-Connection status from cache: $($global:DNSConnectionStatus.IsConnected)" -Level "DEBUG" -Component "Connection"
             return $global:DNSConnectionStatus.IsConnected
         }
     }
@@ -361,7 +361,7 @@ function Test-DNSServerConnection {
         $global:DNSConnectionStatus.LastChecked = Get-Date
         $global:DNSConnectionStatus.ServerName = $ServerName
         
-        Write-Log "DNS-Verbindungstest erfolgreich für $ServerName" -Level "DEBUG" -Component "Connection"
+        Write-Log "DNS-Connection test successful for $ServerName" -Level "DEBUG" -Component "Connection"
         return $true
     }
     catch {
@@ -370,7 +370,7 @@ function Test-DNSServerConnection {
         $global:DNSConnectionStatus.LastChecked = Get-Date
         $global:DNSConnectionStatus.ServerName = $ServerName
         
-        Write-Log "DNS-Verbindungstest fehlgeschlagen für $ServerName`: $_" -Level "DEBUG" -Component "Connection"
+        Write-Log "DNS-Connection test failed for $ServerName`: $_" -Level "DEBUG" -Component "Connection"
         return $false
     }
 }
@@ -937,24 +937,9 @@ $global:XamlString = @"
 
                 <!-- App Name -->
                 <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
-                    <TextBlock Text="$($global:AppConfig.AppName)" 
+                    <TextBlock Text="$($global:AppConfig.AppName) - $($global:AppConfig.ScriptVersion)" 
                               FontSize="20" FontWeight="SemiBold" 
                               Foreground="#1C1C1C" VerticalAlignment="Center"/>
-                </StackPanel>
-
-                <!-- Center Info -->
-                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="DNS Server:" Margin="0,0,8,0" FontWeight="SemiBold" Foreground="#1C1C1C"/>
-                    <TextBox Name="txtDNSServer" Width="150" Style="{StaticResource ModernTextBox}" Text="$($global:DetectedDnsServer)"/>
-                    <Button Name="btnConnect" Content="Connect" Margin="8,0,0,0" Style="{StaticResource ModernButton}"/>
-                    <TextBlock Name="lblStatus" Text="Status: Ready" Margin="16,0,0,0" 
-                              Foreground="#107C10" FontWeight="SemiBold" VerticalAlignment="Center"/>
-                </StackPanel>
-
-                <!-- User Info -->
-                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
-                    <TextBlock Text="USER | " FontSize="16" Margin="0,0,4,0" Foreground="#1C1C1C"/>
-                    <TextBlock Text="$($env:USERNAME)" FontWeight="SemiBold" Foreground="#1C1C1C"/>
                 </StackPanel>
             </Grid>
         </Border>
@@ -968,10 +953,52 @@ $global:XamlString = @"
 
             <!-- Navigation Panel -->
             <Border Grid.Column="0" Background="#2B3E50" BorderBrush="#1E2A38" BorderThickness="0,0,1,0">
-                <StackPanel Margin="0,16">
+                <StackPanel Margin="0,10">
+                    <!-- User Info -->
+                    <GroupBox Header="Angemeldeter Benutzer"
+                              Foreground="#E0E0E0"
+                              BorderBrush="#4A5C6E" BorderThickness="1"
+                              Margin="5,8,5,8"
+                              Padding="8">
+                        <StackPanel>
+                            <TextBlock Text="$($env:USERNAME)"
+                                       FontWeight="SemiBold"
+                                       Foreground="#FFFFFF"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       FontSize="12"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox Header="Server Connection" 
+                              Foreground="#E0E0E0" 
+                              BorderBrush="#4A5C6E" BorderThickness="1" 
+                              Margin="5,10,5,25" 
+                              Padding="8">
+                        <StackPanel>
+                            <!-- DNS Server Input -->
+                            <TextBox Name="txtDNSServer" Style="{StaticResource ModernTextBox}" Text="$($global:DetectedDnsServer)" 
+                                     Background="#1E2A38" Foreground="#FFFFFF" BorderBrush="#4A5C6E" 
+                                     Padding="5,4" FontSize="12" MaxHeight="35" Margin="0,0,0,8"/>
+
+                            <!-- Connect Button -->
+                            <Button Name="btnConnect" Content="Connect" Style="{StaticResource ModernButton}" 
+                                    HorizontalAlignment="Stretch" 
+                                    Margin="0,0,0,8" MaxHeight="28" Padding="8,4" FontSize="12"/>
+                            
+                            <!-- Status -->
+                            <TextBlock Name="lblStatus" Text="Status: Ready" Foreground="#107C10" FontWeight="SemiBold" 
+                                       VerticalAlignment="Center" HorizontalAlignment="Left" 
+                                       Margin="0,0,0,0" FontSize="11"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <!-- Trennlinie -->
+                    <Border Height="1" Background="#4A5C6E" Margin="16,0,16,25" Opacity="0.5"/>
+                    
                     <!-- Navigation Header -->
                     <TextBlock Text="Navigation" Foreground="#FFFFFF" FontSize="14" FontWeight="SemiBold" 
-                              Margin="16,0,16,16" HorizontalAlignment="Center"/>
+                              Margin="16,0,16,12" HorizontalAlignment="Center"/>
 
                     <!-- Navigation Buttons -->
                     <Button Name="btnDashboard" Content="Dashboard" Style="{StaticResource NavButton}" Tag="dashboard"/>
@@ -1082,8 +1109,8 @@ $global:XamlString = @"
                                 <!-- Lower row: About and Copyright side by side -->
                                 <Grid Grid.Row="1"> <!-- This row takes the remaining vertical space -->
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="3*"/> <!-- 75% width -->
-                                        <ColumnDefinition Width="*"/>  <!-- 25% width -->
+                                        <ColumnDefinition Width="65*"/> <!-- 75% width -->
+                                        <ColumnDefinition Width="35*"/>  <!-- 25% width -->
                                     </Grid.ColumnDefinitions>
 
                                     <Border Grid.Column="0" Style="{StaticResource Card}" Margin="0,0,10,0"> <!-- Right margin for spacing, bottom margin is 0 -->
@@ -1177,13 +1204,14 @@ $global:XamlString = @"
                                                 <Run Text="Website: "/>
                                                 <Run Text="$($global:AppConfig.Website)" Foreground="#0078D4" Cursor="Hand" FontWeight="SemiBold"/>
                                             </TextBlock>
-                                            <TextBlock Foreground="#505050" Margin="0,20,0,4">
-                                                <Run Text="License (free): "/>
-                                                <Run Text="Free for up to 3 employees"/>
+                                            <TextBlock Text="License Information" FontSize="14" FontWeight="SemiBold" Foreground="#1C1C1C" Margin="0,20,0,10"/>
+                                            <TextBlock Foreground="#505050" Margin="0,0,0,4" TextWrapping="Wrap">
+                                                <Run Text="Free Version: " FontWeight="SemiBold"/>
+                                                <Run Text="Free for up to 3 employees."/>
                                             </TextBlock>
-                                            <TextBlock Foreground="#505050" Margin="0,0,0,4">
-                                                <Run Text="License (paid): "/>
-                                                <Run Text="from 4 employees"/>
+                                            <TextBlock Foreground="#505050" Margin="0,0,0,10" TextWrapping="Wrap">
+                                                <Run Text="Commercial License: " FontWeight="SemiBold"/>
+                                                <Run Text="For companies with 4 or more employees."/>
                                             </TextBlock>
                                         </StackPanel>
                                     </Border>
@@ -1277,67 +1305,122 @@ $global:XamlString = @"
                             <TextBlock Grid.Row="0" Text="Manage DNS Records" FontSize="24" FontWeight="SemiBold" 
                                       Foreground="#1C1C1C" Margin="0,0,0,12"/>
 
-                            <Grid Grid.Row="1"> 
+                            <Grid Grid.Row="1" MaxWidth="1200">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="0.8*"/> 
-                                    <ColumnDefinition Width="1.2*"/> 
+                                    <ColumnDefinition Width="3*"/> <!-- 30% -->
+                                    <ColumnDefinition Width="4*"/> <!-- 40% -->
+                                    <ColumnDefinition Width="3*"/> <!-- 30% -->
                                 </Grid.ColumnDefinitions>
 
-                                <Border Grid.Column="0" Style="{StaticResource Card}" MinHeight="200">
+                                <Border Grid.Column="0" Style="{StaticResource Card}" MinHeight="200" Margin="0,0,5,0">
                                     <StackPanel>
                                         <TextBlock Text="Select Zone" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,12" Foreground="#1C1C1C"/>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Zone:" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="#1C1C1C"/>
-                                            <ComboBox Name="cmbRecordZone" Width="200" Margin="4" Padding="8,5"/>
-                                        </StackPanel>
-                                        <Button Name="btnRefreshZoneList" Content="Refresh" 
-                                               Margin="0,12,0,0" Style="{StaticResource ModernButton}" HorizontalAlignment="Left"/>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/> <!-- Zeile für ComboBox -->
+                                                <RowDefinition Height="Auto"/> <!-- Zeile für Button -->
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/> <!-- Spalte für "Zone:" TextBlock -->
+                                                <ColumnDefinition Width="*"/>    <!-- Spalte für ComboBox und Button -->
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Zone:" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="#1C1C1C"/>
+                                            <ComboBox Grid.Row="0" Grid.Column="1" Name="cmbRecordZone" Padding="8,5" HorizontalAlignment="Stretch" Margin="0,0,0,8"/> <!-- Margin unten für Abstand zum Button -->
+
+                                            <Button Grid.Row="1" Grid.Column="1" Name="btnRefreshZoneList" Content="Refresh"
+                                                   Style="{StaticResource ModernButton}" HorizontalAlignment="Stretch"
+                                                   Margin="0"/> <!-- Margin="0" setzt linken/rechten Margin auf 0 und überschreibt den Style-Margin, um Bündigkeit zu erreichen. Der Abstand nach oben kommt vom unteren Margin der ComboBox. -->
+                                        </Grid>
+                                        <!-- Explanations moved to the third box -->
                                     </StackPanel>
                                 </Border>
 
-                                <Border Grid.Column="1" Style="{StaticResource Card}" MinHeight="200">
-                                    <StackPanel>
+                                <Border Grid.Column="1" Style="{StaticResource Card}" MinHeight="200" Margin="5,0,5,0">
+                                    <StackPanel Grid.IsSharedSizeScope="True">
                                         <TextBlock Text="Create New Record" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,12" Foreground="#1C1C1C"/>
                                         <Grid>
                                             <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto"/>
-                                                <RowDefinition Height="Auto"/>
-                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/> <!-- Name Row -->
+                                                <RowDefinition Height="Auto"/> <!-- Data Row -->
+                                                <RowDefinition Height="Auto"/> <!-- Type and TTL Row -->
+                                                <RowDefinition Height="Auto"/> <!-- Buttons Row -->
                                             </Grid.RowDefinitions>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/> 
-                                                <ColumnDefinition Width="*"/>   
-                                                <ColumnDefinition Width="Auto"/> 
-                                                <ColumnDefinition Width="*"/>   
+                                                <ColumnDefinition Width="Auto" SharedSizeGroup="InputLabels"/>
+                                                <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
 
-                                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Name:" VerticalAlignment="Center" Margin="0,0,8,4" Foreground="#1C1C1C"/>
-                                            <TextBox Grid.Row="0" Grid.Column="1" Name="txtRecordName" Style="{StaticResource ModernTextBox}" Margin="0,0,16,4"/>
-                                            
-                                            <TextBlock Grid.Row="0" Grid.Column="2" Text="Type:" VerticalAlignment="Center" Margin="0,0,8,4" Foreground="#1C1C1C"/>
-                                            <ComboBox Grid.Row="0" Grid.Column="3" Name="cmbRecordType" Margin="0,0,0,4" Padding="8,5">
-                                                <ComboBoxItem Content="A" IsSelected="True"/>
-                                                <ComboBoxItem Content="AAAA"/>
-                                                <ComboBoxItem Content="CNAME"/>
-                                                <ComboBoxItem Content="MX"/>
-                                                <ComboBoxItem Content="PTR"/>
-                                                <ComboBoxItem Content="TXT"/>
-                                                <ComboBoxItem Content="SRV"/>
-                                            </ComboBox>
+                                            <!-- Name Row -->
+                                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Name:" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="#1C1C1C"/>
+                                            <TextBox Grid.Row="0" Grid.Column="1" Name="txtRecordName" Style="{StaticResource ModernTextBox}" Margin="0,0,0,8"/>
 
-                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Data:" VerticalAlignment="Center" Margin="0,4,8,4" Foreground="#1C1C1C"/>
-                                            <TextBox Grid.Row="1" Grid.Column="1" Name="txtRecordData" Style="{StaticResource ModernTextBox}" Margin="0,4,16,4"/>
+                                            <!-- Data Row -->
+                                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Data:" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="#1C1C1C"/>
+                                            <TextBox Grid.Row="1" Grid.Column="1" Name="txtRecordData" Style="{StaticResource ModernTextBox}" Margin="0,0,0,8"/>
                                             
-                                            <TextBlock Grid.Row="1" Grid.Column="2" Text="TTL (sec):" VerticalAlignment="Center" Margin="0,4,8,4" Foreground="#1C1C1C"/>
-                                            <TextBox Grid.Row="1" Grid.Column="3" Name="txtRecordTTL" Text="3600" Style="{StaticResource ModernTextBox}" Margin="0,4,0,4"/>
+                                            <!-- Type and TTL Row -->
+                                            <Grid Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0,0,12">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" SharedSizeGroup="InputLabels"/>   <!-- Type Label -->
+                                                    <ColumnDefinition Width="*"/>      <!-- Type ComboBox -->
+                                                    <ColumnDefinition Width="16"/>     <!-- Spacer -->
+                                                    <ColumnDefinition Width="Auto"/>   <!-- TTL Label -->
+                                                    <ColumnDefinition Width="*"/>      <!-- TTL TextBox -->
+                                                </Grid.ColumnDefinitions>
+
+                                                <TextBlock Grid.Column="0" Text="Type:" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="#1C1C1C"/>
+                                                <ComboBox Grid.Column="1" Name="cmbRecordType" Padding="8,5" MaxHeight="35" VerticalAlignment="Center">
+                                                    <ComboBoxItem Content="A" IsSelected="True"/>
+                                                    <ComboBoxItem Content="AAAA"/>
+                                                    <ComboBoxItem Content="CNAME"/>
+                                                    <ComboBoxItem Content="MX"/>
+                                                    <ComboBoxItem Content="PTR"/>
+                                                    <ComboBoxItem Content="TXT"/>
+                                                    <ComboBoxItem Content="SRV"/>
+                                                </ComboBox>
+
+                                                <TextBlock Grid.Column="3" Text="TTL (sec):" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="#1C1C1C"/>
+                                                <TextBox Grid.Column="4" Name="txtRecordTTL" Text="3600" Style="{StaticResource ModernTextBox}" VerticalAlignment="Center"/>
+                                            </Grid>
                                             
-                                            <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
-                                                <Button Name="btnCreateRecord" Content="Create" 
-                                                       Background="#107C10" Style="{StaticResource ModernButton}"/>
-                                                <Button Name="btnDeleteRecord" Content="Delete" 
-                                                       Background="#D13438" Style="{StaticResource ModernButton}"/>
-                                            </StackPanel>
+                                            <!-- Buttons Row -->
+                                            <Grid Grid.Row="3" Grid.ColumnSpan="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Button Grid.Column="0" Name="btnCreateRecord" Content="Create" 
+                                                       Background="#107C10" Style="{StaticResource ModernButton}" Margin="0,0,3,0"/>
+                                                <Button Grid.Column="1" Name="btnDeleteRecord" Content="Delete" 
+                                                       Background="#D13438" Style="{StaticResource ModernButton}" Margin="3,0,0,0"/>
+                                            </Grid>
                                         </Grid>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Grid.Column="2" Style="{StaticResource Card}" MinHeight="200" Margin="5,0,0,0">
+                                    <StackPanel>
+                                        <TextBlock Text="Instructions" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,12" Foreground="#1C1C1C"/>
+                                        
+                                        <TextBlock Text="Select Zone:" FontWeight="SemiBold" Foreground="#4A4A4A" FontSize="12" Margin="0,0,0,4"/>
+                                        <TextBlock TextWrapping="Wrap" Foreground="#4A4A4A" FontSize="12" Margin="0,0,0,2">
+                                            - Choose a DNS zone from the dropdown menu to view or manage its records.
+                                        </TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Foreground="#4A4A4A" FontSize="12" Margin="0,0,0,10">
+                                            - Records for the selected zone will appear in the table below.
+                                        </TextBlock>
+                                        
+                                        <TextBlock Text="Create New Record:" FontWeight="SemiBold" Foreground="#4A4A4A" FontSize="12" Margin="0,0,0,4"/>
+                                        <TextBlock TextWrapping="Wrap" Foreground="#4A4A4A" FontSize="12" Margin="0,0,0,2">
+                                            - To add a new record, specify its Name, Type, Data (e.g., IP address or hostname), and TTL (Time-To-Live in seconds).
+                                        </TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Foreground="#4A4A4A" FontSize="12" Margin="0,0,0,2">
+                                            - Click 'Create' to add the new record to the selected zone.
+                                        </TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Foreground="#4A4A4A" FontSize="12" Margin="0,0,0,0">
+                                            - To remove an existing record, select it in the table below and click 'Delete'.
+                                        </TextBlock>
                                     </StackPanel>
                                 </Border>
                             </Grid>
@@ -1961,28 +2044,22 @@ $global:XamlString = @"
                                                 
                                                 <Separator Margin="0,8,0,8"/> 
                                                 
-                                                <!-- DNS Performance Tests -->
-                                                <TextBlock Text="Performance Tests:" FontWeight="SemiBold" Margin="0,0,0,4" Foreground="#1C1C1C"/>
-                                                <UniformGrid Columns="2" Margin="0,0,0,8">
+                                                <!-- DNS-Tests -->
+                                                <TextBlock Text="DNS-Tests:" FontWeight="SemiBold" Margin="0,0,0,4" Foreground="#1C1C1C"/>
+                                                <UniformGrid Columns="3" Margin="0,0,0,8">
                                                     <Button Name="btnDNSBenchmark" Content="DNS Benchmark" Style="{StaticResource ModernButton}" Margin="0,0,2,0"/>
-                                                    <Button Name="btnLatencyTest" Content="Latency Test" Style="{StaticResource ModernButton}" Margin="2,0,0,0"/>
-                                                </UniformGrid>
-                                                
-                                                <!-- DNS Security Tests -->
-                                                <TextBlock Text="Security Tests:" FontWeight="SemiBold" Margin="0,0,0,4" Foreground="#1C1C1C"/>
-                                                <UniformGrid Columns="2" Margin="0,0,0,8">
-                                                    <Button Name="btnDNSSECValidation" Content="DNSSEC Validation" Style="{StaticResource ModernButton}" Margin="0,0,2,0"/>
+                                                    <Button Name="btnLatencyTest" Content="Latency Test" Style="{StaticResource ModernButton}" Margin="1,0,1,0"/>
                                                     <Button Name="btnDNSLeakTest" Content="DNS Leak Test" Style="{StaticResource ModernButton}" Margin="2,0,0,0"/>
                                                 </UniformGrid>
                                                 
                                                 <Separator Margin="0,8,0,8"/>
                                                 
                                                 <!-- Network Analysis -->
-                                                <TextBlock Text="Netzwerkanalyse:" FontWeight="SemiBold" Margin="0,0,0,4" Foreground="#1C1C1C"/>
+                                                <TextBlock Text="Network Analysis:" FontWeight="SemiBold" Margin="0,0,0,4" Foreground="#1C1C1C"/>
                                                 <StackPanel Orientation="Vertical" Margin="0,0,0,8">
                                                     <!-- Reihe 1: Zwei Buttons nebeneinander -->
                                                     <UniformGrid Columns="2" Margin="0,0,0,8"> <!-- Abstand nach unten für die nächste Sektion -->
-                                                        <Button Name="btnNetworkProps" Content="Netzwerkeigenschaften" Style="{StaticResource ModernButton}" Margin="0,0,2,0"/>
+                                                        <Button Name="btnNetworkProps" Content="Network Properties" Style="{StaticResource ModernButton}" Margin="0,0,2,0"/>
                                                         <Button Name="btnTraceRoute" Content="Trace-Route-Analyse" Style="{StaticResource ModernButton}" Margin="2,0,0,0"/>
                                                     </UniformGrid>
                                                     
@@ -1992,7 +2069,7 @@ $global:XamlString = @"
                                                             <ColumnDefinition Width="Auto"/> <!-- Label "Ziel:" -->
                                                             <ColumnDefinition Width="*"/>    <!-- TextBox -->
                                                         </Grid.ColumnDefinitions>
-                                                        <TextBlock Grid.Column="0" Text="Trace Route Ziel:" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="#1C1C1C"/>
+                                                        <TextBlock Grid.Column="0" Text="Trace Route Target:" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="#1C1C1C"/>
                                                         <TextBox Grid.Column="1" Name="txtTraceRouteTarget" Style="{StaticResource ModernTextBox}"/>
                                                     </Grid>
                                                 </StackPanel>
@@ -2047,17 +2124,6 @@ $global:XamlString = @"
                                                         <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
                                                             <Run Text="EN: " FontWeight="Bold"/><Run Text="Test DNS query latency."/><LineBreak/>
                                                             <Run Text="DE: " FontWeight="Bold"/><Run Text="DNS Abfragelatenz testen."/>
-                                                        </TextBlock>
-                                                    </Grid>
-                                                    <Grid Margin="0,0,0,4">
-                                                        <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition Width="Auto" MinWidth="180"/>
-                                                            <ColumnDefinition Width="*"/>
-                                                        </Grid.ColumnDefinitions>
-                                                        <TextBlock Grid.Column="0" Text="DNSSEC Validation:" FontWeight="SemiBold" Foreground="#333333" Margin="0,0,10,0" VerticalAlignment="Top"/>
-                                                        <TextBlock Grid.Column="1" TextWrapping="Wrap" FontSize="12" Foreground="#505050">
-                                                            <Run Text="EN: " FontWeight="Bold"/><Run Text="Perform DNSSEC validation tests."/><LineBreak/>
-                                                            <Run Text="DE: " FontWeight="Bold"/><Run Text="DNSSEC Validierungstests durchfuehren."/>
                                                         </TextBlock>
                                                     </Grid>
                                                     <Grid Margin="0,0,0,4">
@@ -2256,7 +2322,7 @@ $global:XamlString = @"
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="280"/>
+                                        <RowDefinition Height="225"/>
                                     </Grid.RowDefinitions>
                                     <Grid Grid.Row="0" Margin="0,0,0,8">
                                         <Grid.ColumnDefinitions>
@@ -2460,16 +2526,20 @@ $global:XamlString = @"
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <StackPanel Grid.Row="0">
-                                        <TextBlock Text="DNSSEC Zone Status" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,12" Foreground="#1C1C1C"/>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,12" HorizontalAlignment="Left">
+                                    <Grid Grid.Row="0" Margin="0,0,0,12">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="DNSSEC Zone Status" FontSize="16" FontWeight="SemiBold" Foreground="#1C1C1C" VerticalAlignment="Center"/>
+                                        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                                             <Button Name="btnRefreshDNSSEC" Content="Refresh" Style="{StaticResource ModernButton}"/>
                                             <Button Name="btnSignZone" Content="Sign Zone" 
                                                    Background="#107C10" Style="{StaticResource ModernButton}"/>
                                             <Button Name="btnUnsignZone" Content="Unsign Zone" 
                                                    Background="#D13438" Style="{StaticResource ModernButton}"/>
                                         </StackPanel>
-                                    </StackPanel>
+                                    </Grid>
                                     <DataGrid Grid.Row="1" Name="dgDNSSECZones" AutoGenerateColumns="False" 
                                              IsReadOnly="True" GridLinesVisibility="Horizontal" 
                                              HeadersVisibility="Column" CanUserReorderColumns="False"
@@ -2574,18 +2644,18 @@ $global:XamlString = @"
                             <TextBlock Grid.Row="0" Text="Audit and Logs" FontSize="24" FontWeight="SemiBold" 
                                       Foreground="#1C1C1C" Margin="0,0,0,12"/>
 
-                            <Grid Grid.Row="1" Margin="0,0,0,0" MaxWidth="1200" HorizontalAlignment="Left">
+                            <Grid Grid.Row="1" Margin="0,0,0,0" MaxWidth="1200">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="3*"/> <!-- 30% -->
-                                    <ColumnDefinition Width="2*"/> <!-- 20% -->
-                                    <ColumnDefinition Width="5*"/> <!-- 50% -->
+                                    <ColumnDefinition Width="3*"/> <!-- 25% -->
+                                    <ColumnDefinition Width="4*"/> <!-- 45% -->
                                 </Grid.ColumnDefinitions>
 
                                 <Border Grid.Column="0" Style="{StaticResource Card}">
                                     <StackPanel>
                                         <TextBlock Text="Live DNS Monitoring" FontSize="16" FontWeight="SemiBold" 
                                                   Foreground="#1C1C1C" Margin="0,0,0,12"/>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,12" HorizontalAlignment="Left">
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
                                             <Button Name="btnStartMonitoring" Content="Start" 
                                                    Background="#107C10" Style="{StaticResource ModernButton}"/>
                                             <Button Name="btnStopMonitoring" Content="Stop" 
@@ -2593,10 +2663,14 @@ $global:XamlString = @"
                                             <Button Name="btnClearMonitoring" Content="Clear" Style="{StaticResource ModernButton}"/>
                                         </StackPanel>
                                         <TextBlock Text="Monitor Events:" Margin="0,0,0,4" Foreground="#1C1C1C"/>
-                                        <CheckBox Name="chkMonitorQueries" Content="DNS Queries" IsChecked="True" Margin="0,0,0,2" Foreground="#1C1C1C"/>
-                                        <CheckBox Name="chkMonitorZoneChanges" Content="Zone Changes" IsChecked="True" Margin="0,0,0,2" Foreground="#1C1C1C"/>
-                                        <CheckBox Name="chkMonitorErrors" Content="DNS Errors" IsChecked="True" Margin="0,0,0,2" Foreground="#1C1C1C"/>
-                                        <CheckBox Name="chkMonitorSecurity" Content="Security Events" IsChecked="True" Margin="0,0,0,12" Foreground="#1C1C1C"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <CheckBox Name="chkMonitorQueries" Content="DNS Queries" IsChecked="True" Margin="0,0,10,2" Foreground="#1C1C1C" Width="120"/>
+                                            <CheckBox Name="chkMonitorZoneChanges" Content="Zone Changes" IsChecked="True" Margin="0,0,0,2" Foreground="#1C1C1C" Width="135"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <CheckBox Name="chkMonitorErrors" Content="DNS Errors" IsChecked="True" Margin="0,0,10,2" Foreground="#1C1C1C" Width="120"/>
+                                            <CheckBox Name="chkMonitorSecurity" Content="Security Events" IsChecked="True" Margin="0,0,0,20" Foreground="#1C1C1C" Width="135"/>
+                                        </StackPanel>
                                         <TextBlock Name="lblMonitoringStatus" Text="Status: Stopped" 
                                                   Foreground="#D13438" FontWeight="SemiBold"/>
                                     </StackPanel>
@@ -2606,8 +2680,8 @@ $global:XamlString = @"
                                     <StackPanel>
                                         <TextBlock Text="DNS Statistics" FontSize="16" FontWeight="SemiBold" 
                                                   Foreground="#1C1C1C" Margin="0,0,0,12"/>
-                                        <Button Name="btnRefreshStats" Content="Refresh Statistics" HorizontalAlignment="Left"
-                                               Margin="0,0,0,12" Style="{StaticResource ModernButton}"/>
+                                        <Button Name="btnRefreshStats" Content="Refresh Statistics"
+                                               Margin="0,0,0,45" Style="{StaticResource ModernButton}"/>
                                         <TextBlock Name="lblDNSStats" Text="Please Refresh Statistics..." 
                                                   FontSize="12" Foreground="#505050"/>
                                     </StackPanel>
@@ -2615,7 +2689,7 @@ $global:XamlString = @"
                                 
                                 <Border Grid.Column="2" Style="{StaticResource Card}">
                                     <StackPanel>
-                                        <TextBlock Text="Audit & Log Explanations" FontSize="16" FontWeight="SemiBold" Foreground="#1C1C1C" Margin="0,0,0,12"/>
+                                        <TextBlock Text="Audit &amp; Log Explanations" FontSize="16" FontWeight="SemiBold" Foreground="#1C1C1C" Margin="0,0,0,12"/>
                                         <TextBlock TextWrapping="Wrap" Foreground="#505050" LineHeight="18" Margin="0,0,0,10">
                                             <Run Text="This section provides tools for monitoring and auditing your DNS server activity."/>
                                         </TextBlock>
@@ -2683,7 +2757,7 @@ $global:XamlString = @"
                                             <DataGridTextColumn Header="Level" Binding="{Binding Level}" Width="100"/>
                                             <DataGridTextColumn Header="Event" Binding="{Binding Event}" Width="200"/>
                                             <DataGridTextColumn Header="Source" Binding="{Binding Source}" Width="200"/>
-                                            <DataGridTextColumn Header="Message" Binding="{Binding Message}" Width="*"/>
+                                            <DataGridTextColumn Header="Message" Binding="{Binding Message}" Width="450"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
 
@@ -2714,8 +2788,8 @@ $global:XamlString = @"
                           VerticalAlignment="Center" FontSize="11" Foreground="#505050"/>
 
                 <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="Copyright 2025  -  " FontSize="11" Foreground="#505050" Margin="0,0,16,0"/>
-                    <TextBlock Text="by $($global:AppConfig.Author)" FontSize="11" Foreground="#505050" Margin="0,0,16,0"/>
+                    <TextBlock Text="Copyright 2025 @" FontSize="11" Foreground="#505050" Margin="0,0,5,0"/>
+                    <TextBlock Text="by $($global:AppConfig.Author)" FontSize="11" Foreground="#505050" Margin="0,0,35,0"/>
                     <TextBlock Text="$($global:AppConfig.Website)" FontSize="11" Foreground="#0078D4" Cursor="Hand"/>
                 </StackPanel>
 
@@ -2735,9 +2809,9 @@ $global:XamlString = @"
 try {
     Add-Type -AssemblyName PresentationFramework
     $global:Window = [Windows.Markup.XamlReader]::Parse($global:XamlString)
-    Write-Log "WPF XAML erfolgreich geladen" -Level "INFO"
+    Write-Log "WPF XAML successfully loaded" -Level "INFO"
 } catch {
-    Write-Log "Fehler beim Laden des XAML: $_" -Level "ERROR"
+    Write-Log "Error loading XAML: $_" -Level "ERROR"
     exit 1
 }
 
@@ -2773,7 +2847,7 @@ $global:Controls = @{}
     "btnStartMonitoring", "btnStopMonitoring", "btnClearMonitoring", "chkMonitorQueries", "chkMonitorZoneChanges", "chkMonitorErrors", "chkMonitorSecurity", "lblMonitoringStatus",
     "btnRefreshStats", "lblDNSStats", "btnExportLogs", "btnClearLogs", "cmbLogLevel", "txtLogSearch", "btnFilterLogs", "btnRefreshLogs", "dgAuditLogs",
     # Erweiterte Diagnostic Tools Controls
-    "btnDNSBenchmark", "btnLatencyTest", "btnDNSSECValidation", "btnDNSLeakTest", "btnTraceRoute", "btnGenerateReport", "txtTraceRouteTarget",
+    "btnDNSBenchmark", "btnLatencyTest", "btnDNSLeakTest", "btnTraceRoute", "btnGenerateReport", "txtTraceRouteTarget",
     # Monitoring Controls
     "btnStartRealTimeMonitor", "btnStopRealTimeMonitor", "chkMonitorDNSQueries", "chkMonitorDNSErrors", "chkMonitorPerformance",
     "btnTopQueries", "btnQueryPatterns", "btnFailedQueries", "btnResponseTimes", "btnThroughputAnalysis"
@@ -2841,10 +2915,10 @@ function Show-Panel {
             }
         }
         
-        Write-Log "Panel gewechselt zu: $PanelName" -Level "DEBUG" -Component "Navigation"
+        Write-Log "Panel changed to: $PanelName" -Level "DEBUG" -Component "Navigation"
     } else {
-        Write-Log "FEHLER: Panel $panelName nicht gefunden!" -Level "ERROR" -Component "Navigation"
-        Show-MessageBox "Fehler: Das Panel '$PanelName' konnte nicht gefunden werden." "Navigation-Fehler" "Error"
+        Write-Log "ERROR: Panel $panelName not found!" -Level "ERROR" -Component "Navigation"
+        Show-MessageBox "Error: The panel '$PanelName' could not be found." "Navigation Error" "Error"
     }
 }
 
@@ -2862,43 +2936,43 @@ if ($global:Controls.btnDashboard) {
 if ($global:Controls.btnForward) {
     $global:Controls.btnForward.Add_Click({ Show-Panel "forward" })
 } else {
-    Write-Log "FEHLER: btnForward Control nicht gefunden!" -Level "ERROR" -Component "UI"
+    Write-Log "ERROR: btnForward Control not found!" -Level "ERROR" -Component "UI"
 }
 
 if ($global:Controls.btnReverse) {
     $global:Controls.btnReverse.Add_Click({ Show-Panel "reverse" })
 } else {
-    Write-Log "FEHLER: btnReverse Control nicht gefunden!" -Level "ERROR" -Component "UI"
+    Write-Log "ERROR: btnReverse Control not found!" -Level "ERROR" -Component "UI"
 }
 
 if ($global:Controls.btnRecords) {
     $global:Controls.btnRecords.Add_Click({ Show-Panel "records" })
 } else {
-    Write-Log "FEHLER: btnRecords Control nicht gefunden!" -Level "ERROR" -Component "UI"
+    Write-Log "ERROR: btnRecords Control not found!" -Level "ERROR" -Component "UI"
 }
 
 if ($global:Controls.btnImport) {
     $global:Controls.btnImport.Add_Click({ Show-Panel "import" })
 } else {
-    Write-Log "FEHLER: btnImport Control nicht gefunden!" -Level "ERROR" -Component "UI"
+    Write-Log "ERROR: btnImport Control not found!" -Level "ERROR" -Component "UI"
 }
 
 if ($global:Controls.btnDNSSEC) {
     $global:Controls.btnDNSSEC.Add_Click({ Show-Panel "dnssec" })
 } else {
-    Write-Log "FEHLER: btnDNSSEC Control nicht gefunden!" -Level "ERROR" -Component "UI"
+    Write-Log "ERROR: btnDNSSEC Control not found!" -Level "ERROR" -Component "UI"
 }
 
 if ($global:Controls.btnTools) {
     $global:Controls.btnTools.Add_Click({ Show-Panel "tools" })
 } else {
-    Write-Log "FEHLER: btnTools Control nicht gefunden!" -Level "ERROR" -Component "UI"
+    Write-Log "ERROR: btnTools Control not found!" -Level "ERROR" -Component "UI"
 }
 
 if ($global:Controls.btnAudit) {
     $global:Controls.btnAudit.Add_Click({ Show-Panel "audit" })
 } else {
-    Write-Log "FEHLER: btnAudit Control nicht gefunden!" -Level "ERROR" -Component "UI"
+    Write-Log "ERROR: btnAudit Control not found!" -Level "ERROR" -Component "UI"
 }
 
 # DNS-Server Verbindung
@@ -3083,7 +3157,6 @@ $global:Controls.btnSaveOutput.Add_Click({ Save-DiagnosisOutput })
 # Erweiterte Diagnostic Tools Event-Handler
 $global:Controls.btnDNSBenchmark.Add_Click({ Run-DNSBenchmark })
 $global:Controls.btnLatencyTest.Add_Click({ Run-LatencyTest })
-$global:Controls.btnDNSSECValidation.Add_Click({ Run-DNSSECValidation })
 $global:Controls.btnDNSLeakTest.Add_Click({ Run-DNSLeakTest })
 $global:Controls.btnTraceRoute.Add_Click({ Run-TraceRouteAnalysis })
 $global:Controls.btnGenerateReport.Add_Click({ Generate-HealthReport })
@@ -3126,7 +3199,7 @@ function Show-LoadingStatus {
         })
         
     } catch {
-        Write-Log "Fehler beim Anzeigen des Loading-Status: $_" -Level "DEBUG" -Component "UI"
+        Write-Log "Error displaying loading status: $_" -Level "DEBUG" -Component "UI"
     }
 }
 
@@ -3141,7 +3214,7 @@ function Hide-LoadingStatus {
             $global:Controls.lblStatus.Foreground = "#D13438"
         }
     } catch {
-        Write-Log "Fehler beim Verstecken des Loading-Status: $_" -Level "DEBUG" -Component "UI"
+        Write-Log "Error hiding loading status: $_" -Level "DEBUG" -Component "UI"
     }
 }
 
@@ -3158,7 +3231,7 @@ function Update-Dashboard {
                 }
             } catch {
                 $global:Controls.lblOS.Text = "not available"
-                Write-Log "Fehler beim Abrufen des Betriebssystems: $_" -Level "DEBUG"
+                Write-Log "Error fetching operating system: $_" -Level "DEBUG"
             }
             
             # Angemeldeter User
@@ -3228,7 +3301,7 @@ function Update-Dashboard {
                 }
             } catch {
                 $global:Controls.lblRAM.Text = "Not available"
-                Write-Log "Fehler beim Abrufen der RAM-Auslastung: $_" -Level "DEBUG"
+                Write-Log "Error fetching RAM usage: $_" -Level "DEBUG"
             }
             
             # Systempartition (C:)
@@ -3244,7 +3317,7 @@ function Update-Dashboard {
                 }
             } catch {
                 $global:Controls.lblDisk.Text = "Not available"
-                Write-Log "Fehler beim Abrufen der Disk-Auslastung: $_" -Level "DEBUG"
+                Write-Log "Error fetching disk usage: $_" -Level "DEBUG"
             }
             
             # System Uptime
@@ -3560,12 +3633,12 @@ function Create-NewRecord {
 function Remove-SelectedRecord {
     $selectedRecord = $global:Controls.dgRecords.SelectedItem
     if (-not $selectedRecord) {
-        Show-MessageBox "Bitte wählen Sie einen Record zum Löschen aus." "Keine Auswahl" "Warning"
+        Show-MessageBox "Please select a record to delete." "No selection" "Warning"
         return
     }
     
     $zoneName = $global:Controls.cmbRecordZone.SelectedItem
-    $result = [System.Windows.MessageBox]::Show("Möchten Sie den Record '$($selectedRecord.Name)' ($($selectedRecord.Type)) wirklich löschen?", "Record löschen", "YesNo", "Question")
+    $result = [System.Windows.MessageBox]::Show("Do you really want to delete the record '$($selectedRecord.Name)' ($($selectedRecord.Type))?", "Delete Record", "YesNo", "Question")
     
     if ($result -eq "Yes") {
         try {
@@ -3575,13 +3648,13 @@ function Remove-SelectedRecord {
                 Remove-DnsServerResourceRecord -InputObject $record -ZoneName $zoneName -ComputerName $global:Controls.txtDNSServer.Text -Force -ErrorAction Stop
             }
             
-            Show-MessageBox "Record '$($selectedRecord.Name)' wurde erfolgreich gelöscht!" "Record gelöscht"
+            Show-MessageBox "Record '$($selectedRecord.Name)' was deleted successfully!" "Record deleted"
             Update-RecordsList
-            Write-Log "DNS-Record gelöscht: $($selectedRecord.Type) $($selectedRecord.Name) in Zone $zoneName" -Level "INFO"
+            Write-Log "DNS-Record deleted: $($selectedRecord.Type) $($selectedRecord.Name) in Zone $zoneName" -Level "INFO"
             
         } catch {
-            Write-Log "Fehler beim Löschen des DNS-Records: $_" -Level "ERROR"
-            Show-MessageBox "Fehler beim Löschen des Records:`n$_" "Fehler" "Error"
+            Write-Log "Error deleting DNS-Record: $_" -Level "ERROR"
+            Show-MessageBox "Error deleting Record:`n$_" "Error" "Error"
         }
     }
 }
@@ -3993,7 +4066,7 @@ function Sign-SelectedZone {
                 
             } catch {
                 # Fallback: Manuelle DNSSEC-Konfiguration anzeigen
-                $global:Controls.lblDNSSECStatus.Text = "DNSSEC-Konfiguration erforderlich"
+                $global:Controls.lblDNSSECStatus.Text = "DNSSEC-Configuration required"
                 $global:Controls.lblDNSSECStatus.Foreground = "#FF8C00"
                 
                 $manualSteps = @"
