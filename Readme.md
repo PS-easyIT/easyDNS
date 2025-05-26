@@ -1,4 +1,4 @@
-# easyDNS v0.2.27 - Modern DNS Server Management Tool
+# easyDNS v0.2.27 - DNS Server Management Tool
 
 ## Overview (English)
 
